@@ -58,7 +58,7 @@
 </footer>
 <div class="copy">
             <div class="container">
-                <a href="https://www.smarteyeapps.com/">2022 &copy;PST </a>
+                <a href="">2022 &copy;PST </a>
                 
                
             </div>
