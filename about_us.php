@@ -8,7 +8,7 @@ include('header.php');
             <div class="row">
                 <h2>About Ethan Foundation</h2>
                 <ul>
-                    <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li> <a href="index.php"><i class="fas fa-home"></i> Home</a></li>
                     <li><i class="fas fa-angle-double-right"></i> About Us</li>
                 </ul>
             </div>
@@ -18,7 +18,7 @@ include('header.php');
     
      <!--  ************************* About Us Starts Here ************************** -->    
        
-<div class="about-us container-fluid">
+<!--<div class="about-us container-fluid">
     <div class="container">
 
         <div class="row natur-row no-margin w-100">
@@ -59,7 +59,7 @@ include('header.php');
             </div>
         </div>
     </div>
-</div>     
+</div>     -->
    
    
     

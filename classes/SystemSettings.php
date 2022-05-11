@@ -40,10 +40,10 @@ class SystemSettings extends DBConnection{
 			}
 		}
 		if(isset($_POST['about_us'])){
-			file_put_contents('../about.html',$_POST['about_us']);
+			file_put_contents('../about.php',$_POST['about_us']);
 		}
 		if(isset($_POST['welcome_content'])){
-			file_put_contents('../welcome_content.html',$_POST['welcome_content']);
+			file_put_contents('../welcome_content.php',$_POST['welcome_content']);
 		}
 		if(isset($_FILES['img']) && $_FILES['img']['tmp_name'] != ''){
 			$fname = 'uploads/'.strtotime(date('y-m-d H:i')).'_'.$_FILES['img']['name'];

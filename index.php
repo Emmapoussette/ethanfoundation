@@ -71,26 +71,26 @@ include('header.php');
                 <div class="about-quick-box row">
                     <div class="col-md-6">
                         <div class="about-qcard">
-                           <i class="fas fa-user"></i>
-                            <p>Become a Volunteer</p>
+                           <a href="volunteer.php" i class="fas fa-user"></i>
+                            <p>Become a Volunteer</p></a>
                         </div>
                     </div>
                      <div class="col-md-6">
                         <div class="about-qcard ">
-                           <i class="fas fa-search-dollar red"></i>
-                            <p>Quick Fundraise</p>
+                           <a href="#" i class="fas fa-search-dollar red"></i>
+                            <p>Quick Fundraise</p></a>
                         </div>
                     </div>
                      <div class="col-md-6">
                         <div class="about-qcard ">
-                           <i class="fas fa-donate yell"></i>
-                            <p>Give Donation</p>
+                           <a href="donate.php"i class="fas fa-donate yell"></i>
+                            <p>Give Donation</p></a>
                         </div>
                     </div>
                      <div class="col-md-6">
                         <div class="about-qcard ">
-                           <i class="fas fa-hands-helping blu"></i>
-                            <p>Help Someone</p>
+                           <a href="#"i class="fas fa-hands-helping blu"></i>
+                            <p>Help Someone</p></a>
                         </div>
                     </div>
                 </div>
@@ -103,7 +103,7 @@ include('header.php');
     
  <!-- ################# Mission Vision Start Here #######################--->
   
-  <section class="container-fluid mission-vision">
+ <!-- <section class="container-fluid mission-vision">
       <div class="container">
           <div class="row mission">
               <div class="col-md-6 mv-det">
@@ -124,7 +124,7 @@ include('header.php');
               </div>
           </div>
       </div>
-  </section>   
+  </section>   -->
    
 
     

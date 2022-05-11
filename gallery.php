@@ -9,7 +9,7 @@ include('header.php');
             <div class="row">
                 <h2>Our Gallery</h2>
                 <ul>
-                    <li> <a href="#"><i class="fas fa-home"></i> Home</a></li>
+                    <li> <a href="index.php"><i class="fas fa-home"></i> Home</a></li>
                     <li><i class="fas fa-angle-double-right"></i> Gallery</li>
                 </ul>
             </div>
