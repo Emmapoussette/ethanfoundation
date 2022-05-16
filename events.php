@@ -15,7 +15,8 @@ include('header.php');
         </div>
     </div>
     
-    
+   <div class="col-md-12">
+                <div class="row">
    
   <!-- ################# Events Start Here#######################--->
   <?php
@@ -25,12 +26,13 @@ $result='select * from events';
 $query = mysqli_query($conn,$result);
 while ($row = mysqli_fetch_array($query)) {
     ?>
+    <div class="col-md-4">
     <section class="events">
     <div class="container">
         
         <div class="event-ro row">
-            <div class="col-md-4 col-sm-6">
-                <div class="event-box">
+            
+                  <div class="event-box">
                 <img class="card-img-top" src="assets/images/events/<?php echo htmlentities($row['img_path']);?>" alt="<?php echo htmlentities($row['title']);?>"> 
                     <h4><?php echo htmlentities($row['title']);?></h4>
                     
