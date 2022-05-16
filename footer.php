@@ -9,7 +9,25 @@
                 <p>
                     
                 </p>
-                <p> </p>
+                <p> <?php 
+                //include('admin/includes/config.php');
+$pagetype='aboutus';
+$query=mysqli_query($conn,"select PageTitle,Description from pages where PageName='$pagetype'");
+while($row=mysqli_fetch_array($query))
+{
+
+?>
+     
+      <!-- Intro Content -->
+      <div class="row">
+
+        <div class="col-lg-12">
+
+          <p><?php echo $row['Description'];?></p>
+        </div>
+      </div>
+      <!-- /.row -->
+<?php } ?>  </p>
             </div>
            <div class="col-md-4 col-sm-12">
                 <h2>Useful Links</h2>

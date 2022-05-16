@@ -1,9 +1,9 @@
 <?php
 function mysqlexec($sql){
-	$host="localhost"; // Host name
-	$username="root"; // Mysql username
-	$password=""; // Mysql password
-	$db_name="ethan"; // Database name
+	$host="us-cdbr-east-05.cleardb.net"; // Host name
+	$username="bcd8c189837280"; // Mysql username
+	$password="1897ad3f"; // Mysql password
+	$db_name="heroku_4bf53487c839d3e"; // Database name
 
 // Connect to server and select databse.
 	$conn=mysqli_connect("$host", "$username", "$password")or die("cannot connect");

@@ -2,7 +2,7 @@
 ob_start();
 ini_set('date.timezone','Asia/Manila');
 date_default_timezone_set('Asia/Manila');
-session_start();
+//session_start();
 
 require_once('initialize.php');
 require_once('classes/DBConnection.php');

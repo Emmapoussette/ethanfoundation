@@ -70,19 +70,55 @@ include('header.php');
           <div class="row mission">
               <div class="col-md-6 mv-det">
                   <h1>Our Mission</h1>
-                  <p></p>
+                  <p><?php 
+                include('admin/includes/config.php');
+$pagetype='mission';
+$query=mysqli_query($conn,"select PageTitle,Description from pages where PageName='$pagetype'");
+while($row=mysqli_fetch_array($query))
+{
+
+?>
+     
+      <!-- Intro Content -->
+      <div class="row">
+
+        <div class="col-lg-12">
+
+          <p><?php echo $row['Description'];?></p>
+        </div>
+      </div>
+      <!-- /.row -->
+<?php } ?> </p>
               </div>
               <div class="col-md-6 mv-img">
-                  <img src="assets/images/mmisin.jpg" alt="">
+                  <img src="assets/images/misin.jpg" alt="">
               </div>
           </div>
           <div class="row vision">
               <div class="col-md-6 mv-img">
-                   <img src="assets/images/vvision.jpg" alt="">
+                   <img src="assets/images/vision.jpg" alt="">
               </div>
               <div class="col-md-6 mv-det">
                    <h1>Our Vision</h1>
-                   <p></p>
+                   <p><?php 
+                //include('admin/includes/config.php');
+$pagetype='vision';
+$query=mysqli_query($conn,"select PageTitle,Description from pages where PageName='$pagetype'");
+while($row=mysqli_fetch_array($query))
+{
+
+?>
+     
+      <!-- Intro Content -->
+      <div class="row">
+
+        <div class="col-lg-12">
+
+          <p><?php echo $row['Description'];?></p>
+        </div>
+      </div>
+      <!-- /.row -->
+<?php } ?> </p>
               </div>
           </div>
       </div>

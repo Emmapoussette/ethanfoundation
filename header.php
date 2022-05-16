@@ -1,4 +1,4 @@
-<?php require_once('config.php'); ?>
+
 <!doctype html>
 <html lang="en">
 
@@ -38,6 +38,14 @@
                   
                     <ul class="ulright">
                        <li> <small>Folow Us </small>:</li>
+                       <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script>
+        function googleTranslateElementInit() {
+            //new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: "hi,en" }, 'google_translate_element');
+            new google.translate.TranslateElement({}, 'google_translate_element');
+        }
+    </script>
+    
                         <!--<li>
                         <a href="https://www.facebook.com/follow.php?u=<?php echo $currenturl;?>" target="_blank">  <i class="fab fa-facebook-square"></i></a>
                         </li>-->
@@ -66,7 +74,7 @@
             <div class="row nav-row">
                 <div class="col-lg-3 col-md-12 logo">
                     <a href="index.php">
-                        <img src="assets/images/logoo.jpg"height="40px" alt="">
+                        <img src="assets/images/logoo.jpg" height="40px" alt="">
                         <a data-toggle="collapse" data-target="#menu" href="#menu"><i class="fas d-block d-lg-none  small-menu fa-bars"></i></a>
                     </a>
 

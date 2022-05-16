@@ -1,5 +1,6 @@
 <?php
 include('header.php');
+include('admin/includes/config.php');
 ?>  
                  
   <!-- ******************** Slider Starts Here ******************* -->
@@ -77,7 +78,7 @@ include('header.php');
                     </div>
                      <div class="col-md-6">
                         <div class="about-qcard ">
-                           <a href="#" i class="fas fa-search-dollar red"></i>
+                           <a href="events.php" i class="fas fa-search-dollar red"></i>
                             <p>Quick Fundraise</p></a>
                         </div>
                     </div>
@@ -87,12 +88,12 @@ include('header.php');
                             <p>Give Donation</p></a>
                         </div>
                     </div>
-                     <div class="col-md-6">
+                     <!--<div class="col-md-6">
                         <div class="about-qcard ">
                            <a href="#"i class="fas fa-hands-helping blu"></i>
                             <p>Help Someone</p></a>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
