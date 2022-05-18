@@ -88,12 +88,12 @@
                                     <a class="nav-link" href="events.php">Events</a>
                                 </li>
 
-                                <li class="nav-item">
+                              <!--  <li class="nav-item">
                                     <a class="nav-link" href="gallery.php">Gallery</a>
-                                </li>
+                                </li>-->
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="activities.php">Atcivities</a>
+                                    <a class="nav-link" href="activities.php">Activities</a>
                                 </li>
                                 </li>
                                 <li class="nav-item">
