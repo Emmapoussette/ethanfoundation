@@ -3,7 +3,7 @@
 if (isset($_POST['upload'])) {
 
 	# database connection file
-	include('includes/config.php');
+	include 'db.conn.php';
 
 	$images = $_FILES['images'];
 

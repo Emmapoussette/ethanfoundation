@@ -1,14 +1,14 @@
 <?php 
 
 # server name
-$sName = "localhost";
+$sName = "us-cdbr-east-05.cleardb.net";
 # user name
-$uName = "root";
+$uName = "bcd8c189837280";
 # password
-$pass = "";
+$pass = "1897ad3f";
 
 # database name
-$db_name = "image_db";
+$db_name = "heroku_4bf53487c839d3e";
 
 #creating database connection
 try {
