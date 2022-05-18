@@ -1,7 +1,8 @@
 <?php 
 
     # database connection file
-	include 'includes/comfig.php';
+	
+	include('includes/config.php');
 
 	# fetching images
 	$sql  = "SELECT img_name FROM
