@@ -100,7 +100,7 @@
                                     <a class="nav-link" href="about_us.php">About Us</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact_us.php">Contact US</a>
+                                    <a class="nav-link" href="contact_us.php">Help</a>
                                 </li>
 
 

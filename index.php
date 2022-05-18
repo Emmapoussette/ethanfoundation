@@ -175,15 +175,15 @@ include('admin/includes/config.php');
     <!-- ################# Charity Number Starts Here#######################--->
 
 
-    <div class="doctor-message">
+  <!--  <div class="doctor-message">
         <div class="inner-lay">
             <div class="container">
                <div class="row session-title">
                    <h2>Our Digital Achievemtns </h2>
-                   <p>We can talk for a long time about achievemts including contracts, partnership:</p>
+                   <p>We can talk for a long time about achievemts including contracts, partnership:</p>-->
                   <!-- <p>We can talk for a long time about advantages of our Dental clinic before other medical treatment facilities.
 But you can read the following facts in order to make sure of all pluses of our clinic:</p>-->
-               </div>
+          <!--     </div>
                 <div class="row">
                     <div class="col-sm-3 numb">
                         <h3>No</h3>
@@ -206,58 +206,9 @@ But you can read the following facts in order to make sure of all pluses of our 
 
         </div>
 
-    </div> 
+    </div> -->
          
-    <!--################### Our Team Starts Here #######################--->
-          <section class="our-team team-11">
-            <div class="container">
-                <div class="session-title row">
-                      <h2>Meet our Team</h2>
-                      <p></p>
-                </div>
-                <div class="row team-row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single-usr">
-                            <img src="assets/images/team/memb1.jpg" alt="">
-                            <div class="det-o">
-                                <h4>Ethan Member</h4>
-                                <i>CEO </i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single-usr">
-                            <img src="assets/images/team/memb1.jpg" alt="">
-                            <div class="det-o">
-                                <h4>Ethan Team</h4>
-                                <i>CFO</i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single-usr">
-                            <img src="assets/images/team/memb3.jpg" alt="">
-                            <div class="det-o">
-                                <h4>Ethan Team</h4>
-                                <i>Team Leader</i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single-usr">
-                            <img src="assets/images/team/memb4.jpg" alt="">
-                            <div class="det-o">
-                                <h4>Ethan Team</h4>
-                                <i>Project Manager</i>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </section>      
-         
+   
           
     
     <!-- ################# Our Blog Starts Here#######################--->

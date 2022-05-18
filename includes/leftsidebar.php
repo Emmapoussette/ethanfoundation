@@ -22,7 +22,7 @@
                
 
 
-                            <li class="has_sub">
+<li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Category </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                 	<li><a href="add-category.php">Add Category</a></li>
@@ -36,7 +36,7 @@
                                     <li><a href="add-subcategory.php">Add Sub Category</a></li>
                                     <li><a href="manage-subcategories.php">Manage Sub Category</a></li>
                                 </ul>
-                            </li>               
+                            </li>         
   <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Posts (News) </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
@@ -45,7 +45,14 @@
                                      <li><a href="trash-posts.php">Trash Posts</a></li>
                                 </ul>
                             </li>  
-                     
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Posts (News) </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="add-post.php">Add Team member</a></li>
+                                    <li><a href="manage-posts.php">Manage Team</a></li>
+                                     <li><a href="trash-posts.php">Trash Team</a></li>
+                                </ul>
+                            </li>
 
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Pages </span> <span class="menu-arrow"></span></a>
