@@ -37,22 +37,36 @@
                                 </ul>
                             </li>         
   <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Posts (News) </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Posts (Events) </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="add-post.php">Add events</a></li>
                                     <li><a href="manage-posts.php">Manage Events</a></li>
                                      <li><a href="trash-posts.php">Trash Posts</a></li>
                                 </ul>
                             </li> 
-
+        
+                            <li class="has_sub">
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Activities </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="add-post.php">Add Activity</a></li>
+                                    <li><a href="manage-posts.php">Manage Activities</a></li>
+                                     <li><a href="trash-posts.php">Trash Activities</a></li>
+                                </ul>
+                            </li> 
 
                             <li class="has_sub">
                                 <a href="gallery.php"javascript:void(0); class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Gallery </span> </a>
                             </li>   
                             
                             <li class="has_sub">
-                                <a href="events.php"javascript:void(0); class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span>Events </span> </a>
-                            </li> <!--          
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Team Mambers </span> <span class="menu-arrow"></span></a>
+                                <ul class="list-unstyled">
+                                    <li><a href="add-post.php">Add member</a></li>
+                                    <li><a href="manage-posts.php">Manage Team</a></li>
+                                     <li><a href="trash-posts.php">Trash Member</a></li>
+                                </ul>
+                            </li>  
+                             <!--          
   <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Posts (News) </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
