@@ -33,10 +33,10 @@ while ($row = mysqli_fetch_array($query)) {
                 <div class="event-box">
                 <img class="card-img-top" src="<?php echo htmlentities($row['EventImage']);?>" 
                 alt="<?php echo htmlentities($row['EventTitle']);?>"> 
-                    <h4><?php echo htmlentities($row['EventDetail']);?></h4>
+                    <h4><?php echo htmlentities($row['EventDetails']);?></h4>
                     
                     <p class="raises"><span>Raised : $34,425</span> / $500,000 </p>
-                    <p class="desic"><?php echo htmlentities($row['eventdescription']);?> </p>
+                    <p class="desic"><?php echo htmlentities($row['EventDetails']);?> </p>
                     <button class="btn btn-success btn-sm">Donate Now</button>
                 </div>
           
