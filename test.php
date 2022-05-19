@@ -60,7 +60,7 @@ include('initialize.php');
 
 
 $query=mysqli_query($conn,"select events.id as eid,events.EventTitle as eventtitle,events.EventImage,category.CategoryName as category,category.id as
- cid,events.EventDetails as eventdetails,events.PostingDate as postingdate, left join category on category.id=posts.CategoryId where posts.Is_Active=1 order by events.id desc  LIMIT $offset, $no_of_records_per_page");
+ cid,events.EventDetails as eventdetails,events.PostingDate as postingdate, left join category on category.id=posts.CategoryId where events.Is_Active=1 order by events.id desc  LIMIT $offset, $no_of_records_per_page");
 while ($row=mysqli_fetch_array($query)) {
 ?>
 
@@ -84,7 +84,7 @@ while ($row=mysqli_fetch_array($query)) {
        
 
       
-<p></p>
+
           <!-- Pagination -->
 
 

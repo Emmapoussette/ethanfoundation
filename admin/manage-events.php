@@ -11,7 +11,7 @@ else{
 if($_GET['action']='del')
 {
 $postid=intval($_GET['eid']);
-$query=mysqli_query($conn,"update posts set Is_Active=0 where id='$postid'");
+$query=mysqli_query($conn,"update posts set Is_Active=0 where id='$eventid'");
 if($query)
 {
 $msg="Event deleted ";
@@ -128,7 +128,7 @@ $error="Something went wrong . Please try again.";
 <?php
 $query=mysqli_query($conn,"select events.id as eventid,events.EventTitle as title,category.CategoryName as category,
  left join category on category.id=posts.CategoryId left join
-  where posts.Is_Active=1 ");
+  where events.Is_Active=1 ");
 $rowcount=mysqli_num_rows($query);
 if($rowcount==0)
 {
