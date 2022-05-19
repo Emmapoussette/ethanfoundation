@@ -73,8 +73,8 @@ while ($row=mysqli_fetch_array($query)) {
 <!--Subcategory--->
   </p>
        
-              <a href="events-details.php?nid=<?php echo htmlentities($row['eid'])?>" class="btn btn-primary">Read More &rarr;</a>
-            </div>
+             <!-- <a href="events-details.php?nid=<?php echo htmlentities($row['eid'])?>" class="btn btn-primary">Read More &rarr;</a>
+            </div>-->
             <div class="card-footer text-muted">
               Posted on <?php echo htmlentities($row['postingdate']);?>
            
