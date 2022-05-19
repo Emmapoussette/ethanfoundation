@@ -33,7 +33,7 @@ while ($row = mysqli_fetch_array($query)) {
             <div class="col-md-4 col-sm-6">
                 <div class="event-box">
                 <img class="card-img-top" src="<?php echo htmlentities($row['EventImage']);?>" 
-                alt="<?php echo htmlentities($row['EventTitle']);?>"> 
+                alt="<?php echo htmlentities($row['eventtitle']);?>"> 
                     <h4><?php echo htmlentities($row['eventtitle']);?></h4>
                     
                     <p class="raises"><span>Raised : $34,425</span> / $500,000 </p>
@@ -41,11 +41,7 @@ while ($row = mysqli_fetch_array($query)) {
                     <button class="btn btn-success btn-sm">Donate Now</button>
                 </div>
           </div>
-        </div>
-    </div>
-        
-     </section>
-     </div> 
+        </section> 
 <?php
 }
 ?>  
