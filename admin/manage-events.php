@@ -10,11 +10,11 @@ else{
 
 if($_GET['action']='del')
 {
-$postid=intval($_GET['pid']);
-$query=mysqli_query($con,"update posts set Is_Active=0 where id='$postid'");
+$postid=intval($_GET['eid']);
+$query=mysqli_query($conn,"update posts set Is_Active=0 where id='$postid'");
 if($query)
 {
-$msg="Post deleted ";
+$msg="Event deleted ";
 }
 else{
 $error="Something went wrong . Please try again.";    
@@ -126,7 +126,7 @@ $error="Something went wrong . Please try again.";
 <tbody>
 
 <?php
-$query=mysqli_query($con,"select events.id as eventid,events.EventTitle as title,category.CategoryName as category,
+$query=mysqli_query($conn,"select events.id as eventid,events.EventTitle as title,category.CategoryName as category,
  left join category on category.id=posts.CategoryId left join
   where posts.Is_Active=1 ");
 $rowcount=mysqli_num_rows($query);
