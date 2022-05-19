@@ -35,7 +35,7 @@ $imgnewfile=md5($imgfile).$extension;
 move_uploaded_file($_FILES["eventimage"]["tmp_name"],"eventimages/".$imgnewfile);
 
 $status=1;
-$query=mysqli_query($con,"insert into events(EventTitle,CategoryId,EventDetails,Is_Active,eventImage,postedBy) values('$eventtitle','$catid','$postdetails','$status','$imgnewfile','$postedby')");
+$query=mysqli_query($conn,"insert into events(EventTitle,CategoryId,EventDetails,Is_Active,eventImage,postedBy) values('$eventtitle','$catid','$postdetails','$status','$imgnewfile','$postedby')");
 if($query)
 {
 $msg="Post successfully added ";
