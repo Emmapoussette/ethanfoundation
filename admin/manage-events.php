@@ -31,7 +31,7 @@ $error="Something went wrong . Please try again.";
         <meta name="author" content="Coderthemes">
 
         <!-- App favicon -->
-        <link rel="shortcut icon" href="assets/images/favicon.ico">
+        <link rel="shortcut icon" href="admin/assets/images/favicon.ico">
         <!-- App title -->
         <title>Ethan-Foundation | Manage Events</title>
 
@@ -146,7 +146,7 @@ while($row=mysqli_fetch_array($query))
 <td><b><?php echo htmlentities($row['title']);?></b></td>
 <td><?php echo htmlentities($row['category'])?></td>
 
-<td><a href="edit-event.php?pid=<?php echo htmlentities($row['eventid']);?>"><i class="fa fa-pencil" style="color: #29b6f6;"></i></a> 
+<td><a href="edit-event.php?eid=<?php echo htmlentities($row['eventid']);?>"><i class="fa fa-pencil" style="color: #29b6f6;"></i></a> 
     &nbsp;<a href="manage-events.php?eid=<?php echo htmlentities($row['postid']);?>&&action=del" onclick="return confirm('Do you reaaly want to delete ?')"> <i class="fa fa-trash-o" style="color: #f05050"></i></a> </td>
  </tr>
 <?php } }?>
