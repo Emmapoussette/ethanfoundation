@@ -31,11 +31,12 @@ while ($row = mysqli_fetch_array($query)) {
         <div class="event-ro row">
             <div class="col-md-4 col-sm-6">
                 <div class="event-box">
-                <img class="card-img-top" src="assets/images/events/<?php echo htmlentities($row['img_path']);?>" alt="<?php echo htmlentities($row['title']);?>"> 
-                    <h4><?php echo htmlentities($row['title']);?></h4>
+                <img class="card-img-top" src="admin/events/<?php echo htmlentities($row['EventImage']);?>" 
+                alt="<?php echo htmlentities($row['eventtitle']);?>"> 
+                    <h4><?php echo htmlentities($row['eventtitle']);?></h4>
                     
                     <p class="raises"><span>Raised : $34,425</span> / $500,000 </p>
-                    <p class="desic"><?php echo htmlentities($row['description']);?> </p>
+                    <p class="desic"><?php echo htmlentities($row['eventdescription']);?> </p>
                     <button class="btn btn-success btn-sm">Donate Now</button>
                 </div>
           
