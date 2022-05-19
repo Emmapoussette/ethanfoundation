@@ -63,7 +63,7 @@ $query=mysqli_query($conn,"select events.id as eid,events.EventTitle as eventtit
  cid,events.EventDetails as eventdetails,events.PostingDate as postingdate, left join category on category.id=posts.CategoryId where posts.Is_Active=1 order by events.id desc  LIMIT $offset, $no_of_records_per_page");
 while ($row=mysqli_fetch_array($query)) {
 ?>
-
+<p>Events</p>
           <div class="card mb-4">
  <img class="card-img-top" src="admin/assets/<?php echo htmlentities($row['EventImage']);?>" alt="<?php echo htmlentities($row['eventtitle']);?>">
             <div class="card-body">
