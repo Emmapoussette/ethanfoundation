@@ -9,7 +9,7 @@ include('initialize.php');
 
  
     <link rel="icon" href="icon_path" type="image/icon type">
-    <title>Ethan-Foundation| Updates</title>
+    <title>Ethan-Foundation| Events</title>
     <link rel="shortcut icon" href="images/favicon.ico" />
         <link rel="icon" href="http://www.domain.com/favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="http://www.domain.com/favicon.ico" type="image/x-icon" />    
@@ -59,7 +59,7 @@ include('initialize.php');
         $total_pages = ceil($total_rows / $no_of_records_per_page);
 
 
-$query=mysqli_query($con,"select events.id as eid,events.EventTitle as eventtitle,events.EventImage,category.CategoryName as category,category.id as
+$query=mysqli_query($conn,"select events.id as eid,events.EventTitle as eventtitle,events.EventImage,category.CategoryName as category,category.id as
  cid,events.EventDetails as eventdetails,events.PostingDate as postingdate, left join category on category.id=posts.CategoryId where posts.Is_Active=1 order by events.id desc  LIMIT $offset, $no_of_records_per_page");
 while ($row=mysqli_fetch_array($query)) {
 ?>
