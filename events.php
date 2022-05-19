@@ -31,7 +31,7 @@ while ($row = mysqli_fetch_array($query)) {
         <div class="event-ro row">
             <div class="col-md-4 col-sm-6">
                 <div class="event-box">
-                <img class="card-img-top" src="admin/events/<?php echo htmlentities($row['EventImage']);?>" 
+                <img class="card-img-top" src="<?php echo htmlentities($row['EventImage']);?>" 
                 alt="<?php echo htmlentities($row['eventtitle']);?>"> 
                     <h4><?php echo htmlentities($row['eventtitle']);?></h4>
                     
