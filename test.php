@@ -108,7 +108,7 @@ while ($row=mysqli_fetch_array($query)) {
     <!-- /.container -->
 
     <!-- Footer -->
-      <?php include('footer.php');?>
+   
 
 
     <!-- Bootstrap core JavaScript -->
@@ -120,3 +120,4 @@ while ($row=mysqli_fetch_array($query)) {
   </body>
 
 </html>
+<?php include('footer.php');?>
