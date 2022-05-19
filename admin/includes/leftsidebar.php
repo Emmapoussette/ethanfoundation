@@ -39,9 +39,9 @@
   <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Posts (Events) </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="add-post.php">Add events</a></li>
-                                    <li><a href="manage-posts.php">Manage Events</a></li>
-                                     <li><a href="trash-posts.php">Trash Posts</a></li>
+                                    <li><a href="add-event.php">Add events</a></li>
+                                    <li><a href="manage-events.php">Manage Events</a></li>
+                                     <li><a href="trash-events.php">Trash Posts</a></li>
                                 </ul>
                             </li> 
         

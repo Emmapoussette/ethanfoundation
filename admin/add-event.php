@@ -11,14 +11,13 @@ else{
 // For adding post  
 if(isset($_POST['submit']))
 {
-$posttitle=$_POST['posttitle'];
+$eventtitle=$_POST['eventtitle'];
 $catid=$_POST['category'];
-$subcatid=$_POST['subcategory'];
-$postdetails=$_POST['postdescription'];
+$eventdetails=$_POST['eventdescription'];
 $postedby=$_SESSION['login'];
-$arr = explode(" ",$posttitle);
+$arr = explode(" ",$eventtitle);
 $url=implode("-",$arr);
-$imgfile=$_FILES["postimage"]["name"];
+$imgfile=$_FILES["eventimage"]["name"];
 // get the image extension
 $extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
 // allowed extensions
@@ -33,10 +32,10 @@ else
 //rename the image file
 $imgnewfile=md5($imgfile).$extension;
 // Code for move image into directory
-move_uploaded_file($_FILES["postimage"]["tmp_name"],"postimages/".$imgnewfile);
+move_uploaded_file($_FILES["eventimage"]["tmp_name"],"eventimages/".$imgnewfile);
 
 $status=1;
-$query=mysqli_query($con,"insert into posts(PostTitle,CategoryId,SubCategoryId,PostDetails,PostUrl,Is_Active,PostImage,postedBy) values('$posttitle','$catid','$subcatid','$postdetails','$url','$status','$imgnewfile','$postedby')");
+$query=mysqli_query($con,"insert into events(EventTitle,CategoryId,EventDetails,Is_Active,eventImage,postedBy) values('$eventtitle','$catid','$postdetails','$status','$imgnewfile','$postedby')");
 if($query)
 {
 $msg="Post successfully added ";
@@ -59,7 +58,7 @@ $error="Something went wrong . Please try again.";
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Ethan-Foundation| Add Post</title>
+        <title>Ethan-Foundation| Add event</title>
 
         <!-- Summernote css -->
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
@@ -81,7 +80,7 @@ $error="Something went wrong . Please try again.";
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
         <script src="assets/js/modernizr.min.js"></script>
- <script>
+ <!--<script>
 function getSubCat(val) {
   $.ajax({
   type: "POST",
@@ -92,7 +91,7 @@ function getSubCat(val) {
   }
   });
   }
-  </script>
+  </script>-->
     </head>
 
 
@@ -121,16 +120,16 @@ function getSubCat(val) {
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Add Post </h4>
+                                    <h4 class="page-title">Add Event </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Post</a>
                                         </li>
                                         <li>
-                                            <a href="#">Add Post </a>
+                                            <a href="#">Add Event </a>
                                         </li>
                                         <li class="active">
-                                            Add Post
+                                            Add Event
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -165,7 +164,7 @@ function getSubCat(val) {
                                     <div class="">
 <form name="addpost" method="post" enctype="multipart/form-data">
  <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Post Title</label>
+<label for="exampleInputEmail1">Event Title</label>
 <input type="text" class="form-control" id="posttitle" name="posttitle" placeholder="Enter title" required>
 </div>
 
@@ -173,11 +172,11 @@ function getSubCat(val) {
 
 <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Category</label>
-<select class="form-control" name="category" id="category" onChange="getSubCat(this.value);" required>
+<select class="form-control" name="category" id="category"  required>
 <option value="">Select Category </option>
 <?php
 // Feching active categories
-$ret=mysqli_query($con,"select id,CategoryName from category where Is_Active=1");
+$ret=mysqli_query($conn,"select id,CategoryName from category where Is_Active=1");
 while($result=mysqli_fetch_array($ret))
 {    
 ?>
@@ -187,19 +186,19 @@ while($result=mysqli_fetch_array($ret))
 </select> 
 </div>
     
-<div class="form-group m-b-20">
+<!--<div class="form-group m-b-20">
 <label for="exampleInputEmail1">Sub Category</label>
 <select class="form-control" name="subcategory" id="subcategory" required>
 
 </select> 
-</div>
+</div>-->
          
 
 <div class="row">
 <div class="col-sm-12">
  <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>Post Details</b></h4>
-<textarea class="summernote" name="postdescription" required></textarea>
+<h4 class="m-b-30 m-t-0 header-title"><b>Event Details</b></h4>
+<textarea class="summernote" name="eventdescription" required></textarea>
 </div>
 </div>
 </div>
@@ -209,7 +208,7 @@ while($result=mysqli_fetch_array($ret))
 <div class="col-sm-12">
  <div class="card-box">
 <h4 class="m-b-30 m-t-0 header-title"><b>Feature Image</b></h4>
-<input type="file" class="form-control" id="postimage" name="postimage"  required>
+<input type="file" class="form-control" id="eventimage" name="eventimage"  required>
 </div>
 </div>
 </div>
