@@ -25,7 +25,6 @@ $result='select * from events';
 $query = mysqli_query($conn,$result);
 while ($row = mysqli_fetch_array($query)) {
     ?>
-    <div class="col-md-4 ">
     <section class="events">
     <div class="container">
         
@@ -40,7 +39,7 @@ while ($row = mysqli_fetch_array($query)) {
                     <p class="desic"><?php echo htmlentities($row['eventdescription']);?> </p>
                     <button class="btn btn-success btn-sm">Donate Now</button>
                 </div>
-          </div>
+          
         </section> 
 <?php
 }
