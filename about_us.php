@@ -125,7 +125,7 @@ while($row=mysqli_fetch_array($query))
   </section>   
    
    <!--################### Our Team Starts Here #######################--->
-   <section class="our-team team-11">
+  <!-- <section class="our-team team-11">
             <div class="container">
                 <div class="session-title row">
                       <h2>Meet our Team</h2>
@@ -172,7 +172,54 @@ while($row=mysqli_fetch_array($query))
 
                 </div>
             </div>
-        </section>      
+        </section>   -->  
+        <head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<br />
+		<div class="container">
+			<br />
+			<br />
+			<br />
+		
+			<br /><br />
+			<?php
+				$query = "select team.id as tid,team.name as name,team.position as position,team.profile as profile from team ";
+				$result = mysqli_query($conn, $query);
+				if(mysqli_num_rows($result) > 0)
+				{
+					while($row = mysqli_fetch_array($result))
+					{
+				?>
+			<div class="col-md-4">
+				<form method="post">
+					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
+						<img src="img/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
+
+						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
+                    <p class="desic"><?php echo htmlentities($row['name']);?> </p>
+                    <p class="desic"><?php echo htmlentities($row['position']);?> </p>
+                  
+
+						<!--<input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />-->
+
+					</div>
+				</form>
+			</div>
+			<?php
+					}
+				}
+			?>
+			
+					
+		</div>
+	</div>
+	<br /></br>
+      </div>
+	</body> 
          
                  
   <!--  ************************* Footer Starts Here ************************** -->

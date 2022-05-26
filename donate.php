@@ -20,13 +20,13 @@ include('admin/includes/config.php');
                 <div class="about-quick-box row">
                     <div class="col-md-6">
                         <div class="about-qcard">
-                           <a href="" i class="fa- fa-moblemoney"> <img src='https://th.bing.com/th/id/R.5e5000d4845a9ede4b7e3a433cf4ec58?rik=dZKU9XOVaby%2fkw&pid=ImgRaw&r=0'></i></a>
+                           <a href="https://ravesandbox.flutterwave.com/donate/wck4hiliswja" i class="fa- fa-moblemoney"> <img src='https://th.bing.com/th/id/R.5e5000d4845a9ede4b7e3a433cf4ec58?rik=dZKU9XOVaby%2fkw&pid=ImgRaw&r=0'></i></a>
                            <!-- <p>Mobile Money</p>-->
                         </div>
                     </div>
                      <div class="col-md-6">
                         <div class="about-qcard ">
-                           <a href="" i class="fas fa-search-dollar red"><img src='https://i0.wp.com/ctrcrafts.com/wp-content/uploads/2020/04/59ae9a5a3c2a8dd47db3b1fef3f59fdb.png?fit=300%2C102&ssl=1'></i></a>
+                           <a href="https://www.paypal.com/donate/?hosted_button_id=8DCGDNX5ETMXG" i class="fas fa-search-dollar red"><img src='https://i0.wp.com/ctrcrafts.com/wp-content/uploads/2020/04/59ae9a5a3c2a8dd47db3b1fef3f59fdb.png?fit=300%2C102&ssl=1'></i></a>
                           <!--  <p>PayPal</p>-->
                         </div>
                     </div>

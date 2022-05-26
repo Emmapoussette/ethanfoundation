@@ -11,14 +11,13 @@ else{
 // For adding post  
 if(isset($_POST['submit']))
 {
-$posttitle=$_POST['posttitle'];
+$activitytitle=$_POST['activitytitle'];
 $catid=$_POST['category'];
-$subcatid=$_POST['subcategory'];
-$postdetails=$_POST['postdescription'];
+$activitydetails=$_POST['activitydetails'];
 $postedby=$_SESSION['login'];
-$arr = explode(" ",$posttitle);
+$arr = explode(" ",$activitytitle);
 $url=implode("-",$arr);
-$imgfile=$_FILES["postimage"]["name"];
+$imgfile=$_FILES["activityimage"]["name"];
 // get the image extension
 $extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
 // allowed extensions
@@ -33,13 +32,13 @@ else
 //rename the image file
 $imgnewfile=md5($imgfile).$extension;
 // Code for move image into directory
-move_uploaded_file($_FILES["postimage"]["tmp_name"],"postimages/".$imgnewfile);
+move_uploaded_file($_FILES["activityimage"]["tmp_name"],"eventimages/".$imgnewfile);
 
 $status=1;
-$query=mysqli_query($con,"insert into posts(PostTitle,CategoryId,SubCategoryId,PostDetails,PostUrl,Is_Active,PostImage,postedBy) values('$posttitle','$catid','$subcatid','$postdetails','$url','$status','$imgnewfile','$postedby')");
+$query=mysqli_query($conn,"insert into activity(ActivityTitle,CategoryId,ActivityDetails,EventUrl,Is_Active,ActivityImage,postedBy) values('$activitytitle','$catid','$activitydetails','$url','$status','$imgnewfile','$postedby')");
 if($query)
 {
-$msg="Post successfully added ";
+$msg="Activity successfully added ";
 }
 else{
 $error="Something went wrong . Please try again.";    
@@ -59,7 +58,7 @@ $error="Something went wrong . Please try again.";
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Ethan-Foundation| Add Post</title>
+        <title>Ethan-Foundation| Add Acvity</title>
 
         <!-- Summernote css -->
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
@@ -121,16 +120,16 @@ function getSubCat(val) {
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Add Post </h4>
+                                    <h4 class="page-title">Add Activity </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Post</a>
                                         </li>
                                         <li>
-                                            <a href="#">Add Post </a>
+                                            <a href="#">Add Activity </a>
                                         </li>
                                         <li class="active">
-                                            Add Post
+                                            Add Activity
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -165,7 +164,7 @@ function getSubCat(val) {
                                     <div class="">
 <form name="addpost" method="post" enctype="multipart/form-data">
  <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Post Title</label>
+<label for="exampleInputEmail1">Activity Title</label>
 <input type="text" class="form-control" id="posttitle" name="posttitle" placeholder="Enter title" required>
 </div>
 
@@ -173,11 +172,11 @@ function getSubCat(val) {
 
 <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Category</label>
-<select class="form-control" name="category" id="category" onChange="getSubCat(this.value);" required>
+<select class="form-control" name="category" id="category"  required>
 <option value="">Select Category </option>
 <?php
 // Feching active categories
-$ret=mysqli_query($con,"select id,CategoryName from category where Is_Active=1");
+$ret=mysqli_query($conn,"select id,CategoryName from category where Is_Active=1");
 while($result=mysqli_fetch_array($ret))
 {    
 ?>
@@ -187,18 +186,13 @@ while($result=mysqli_fetch_array($ret))
 </select> 
 </div>
     
-<div class="form-group m-b-20">
-<label for="exampleInputEmail1">Sub Category</label>
-<select class="form-control" name="subcategory" id="subcategory" required>
 
-</select> 
-</div>
          
 
 <div class="row">
 <div class="col-sm-12">
  <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>Post Details</b></h4>
+<h4 class="m-b-30 m-t-0 header-title"><b>Activity Details</b></h4>
 <textarea class="summernote" name="postdescription" required></textarea>
 </div>
 </div>

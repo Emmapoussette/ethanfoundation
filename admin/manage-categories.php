@@ -10,14 +10,14 @@ else{
 if($_GET['action']=='del' && $_GET['rid'])
 {
 	$id=intval($_GET['rid']);
-	$query=mysqli_query($con,"update category set Is_Active='0' where id='$id'");
+	$query=mysqli_query($conn,"update category set Is_Active='0' where id='$id'");
 	$msg="Category deleted ";
 }
 // Code for restore
 if($_GET['resid'])
 {
 	$id=intval($_GET['resid']);
-	$query=mysqli_query($con,"update category set Is_Active='1' where id='$id'");
+	$query=mysqli_query($conn,"update category set Is_Active='1' where id='$id'");
 	$msg="Category restored successfully";
 }
 
@@ -25,7 +25,7 @@ if($_GET['resid'])
 if($_GET['action']=='parmdel' && $_GET['rid'])
 {
 	$id=intval($_GET['rid']);
-	$query=mysqli_query($con,"delete from  category  where id='$id'");
+	$query=mysqli_query($conn,"delete from  category  where id='$id'");
 	$delmsg="Category deleted forever";
 }
 
@@ -141,7 +141,7 @@ if($_GET['action']=='parmdel' && $_GET['rid'])
                                                         </thead>
                                                         <tbody>
 <?php 
-$query=mysqli_query($con,"Select id,CategoryName,Description,PostingDate,UpdationDate from  category where Is_Active=1");
+$query=mysqli_query($conn,"Select id,CategoryName,Description,PostingDate,UpdationDate from  category where Is_Active=1");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {
@@ -201,7 +201,7 @@ $cnt++;
                                                         </thead>
                                                         <tbody>
 <?php 
-$query=mysqli_query($con,"Select id,CategoryName,Description,PostingDate,UpdationDate from  category where Is_Active=0");
+$query=mysqli_query($conn,"Select id,CategoryName,Description,PostingDate,UpdationDate from  category where Is_Active=0");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {

@@ -102,7 +102,7 @@ else{
                                     <i class="mdi mdi-chart-areaspline widget-one-icon"></i>
                                     <div class="wigdet-one-content">
                                         <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="Statistics">Categories Listed</p>
-<?php $query=mysqli_query($con,"select * from category where Is_Active=1");
+<?php $query=mysqli_query($conn,"select * from category where Is_Active=1");
 $countcat=mysqli_num_rows($query);
 ?>
 
@@ -111,32 +111,32 @@ $countcat=mysqli_num_rows($query);
                                     </div>
                                 </div>
                             </div></a><!-- end col -->
-<a href="manage-subcategories.php">
+<a href="manage-events.php">
                             <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="card-box widget-box-one">
                                     <i class="mdi mdi-layers widget-one-icon"></i>
                                     <div class="wigdet-one-content">
-                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Listed Subcategories</p>
-<?php $query=mysqli_query($con,"select * from subcategory where Is_Active=1");
+                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Listed Events</p>
+<?php $query=mysqli_query($conn,"select * from events where Is_Active=1");
 $countsubcat=mysqli_num_rows($query);
 ?>
-                                        <h2><?php echo htmlentities($countsubcat);?> <small></small></h2>
+                                        <h2><?php echo htmlentities($countevents);?> <small></small></h2>
                               
                                     </div>
                                 </div>
                             </div><!-- end col -->
 </a>
 
-     <a href="manage-posts.php">                       
+     <a href="manage-activities.php">                       
         <div class="col-lg-4 col-md-4 col-sm-6">
                                 <div class="card-box widget-box-one">
                                     <i class="mdi mdi-layers widget-one-icon"></i>
                                     <div class="wigdet-one-content">
                                         <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Live News</p>
-<?php $query=mysqli_query($con,"select * from posts where Is_Active=1");
+<?php $query=mysqli_query($conn,"select * from activity where Is_Active=1");
 $countposts=mysqli_num_rows($query);
 ?>
-                                        <h2><?php echo htmlentities($countposts);?> <small></small></h2>
+                                        <h2><?php echo htmlentities($countactivities);?> <small></small></h2>
                               
                                     </div>
                                 </div>
@@ -154,7 +154,7 @@ $countposts=mysqli_num_rows($query);
                                     <i class="mdi mdi-layers widget-one-icon"></i>
                                     <div class="wigdet-one-content">
                                         <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Trash News</p>
-<?php $query=mysqli_query($con,"select * from posts where Is_Active=0");
+<?php $query=mysqli_query($conn,"select * from posts where Is_Active=0");
 $countposts=mysqli_num_rows($query);
 ?>
                                         <h2><?php echo htmlentities($countposts);?> <small></small></h2>

@@ -48,9 +48,9 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Activities </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="add-post.php">Add Activity</a></li>
-                                    <li><a href="manage-posts.php">Manage Activities</a></li>
-                                     <li><a href="trash-posts.php">Trash Activities</a></li>
+                                    <li><a href="add-activity.php">Add Activity</a></li>
+                                    <li><a href="manage-activities.php">Manage Activities</a></li>
+                                     <li><a href="trash-activity.php">Trash Activities</a></li>
                                 </ul>
                             </li> 
 

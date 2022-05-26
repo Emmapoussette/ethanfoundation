@@ -42,9 +42,8 @@ while($row=mysqli_fetch_array($query))
             <div class="col-md-4 col-sm-12 map-img">
                 <h2>Contact Us</h2>
                 <address class="md-margin-bottom-40">
-                    Kigali=Rwanda <br>
-                    Gisozi (K.G n0) <br>
-                    Mudugugu, ISIBO <br>
+                    Rwanda-Kigali KG750 <br>
+                    Ethiopia, Ethiopia<br>
                     Phone: +25078888888888 <br>
                     Email: <a href="mailto:ethanfoundation@gmail.com" class="">ethanfoundation@gmail.com</a><br>
                     Web: <a href="www.thanfoundation.info" class="">www.thanfoundation.info</a>
@@ -71,11 +70,3 @@ while($row=mysqli_fetch_array($query))
     
 
 </footer>
-<div class="copy">
-            <div class="container">
-                <a href="">2022 &copy;PST </a>
-                
-               
-            </div>
-
-        </div>

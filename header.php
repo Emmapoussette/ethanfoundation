@@ -96,7 +96,11 @@
                                 </li>-->
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="activities.php">Activities</a>
+                                    <a class="nav-link" href="activity.php">Activities</a>
+                                </li>
+                                
+                                <li class="nav-item">
+                                    <a class="nav-link" href="whatwedo.php">What We Do</a>
                                 </li>
                                 </li>
                                 <li class="nav-item">
