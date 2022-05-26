@@ -145,10 +145,7 @@ while ($row = mysqli_fetch_array($query)) {
                  
   <!--  ************************* Footer Starts Here ************************** -->
           
-  <?php
-  include('footer.php');
-  ?>
-    
+  
 
 
 <script src="assets/js/jquery-3.2.1.min.js"></script>
@@ -159,3 +156,7 @@ while ($row = mysqli_fetch_array($query)) {
 <script src="assets/js/script.js"></script>
 
 </html>
+<?php
+  include('footer.php');
+  ?>
+    
