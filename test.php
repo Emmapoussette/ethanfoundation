@@ -6,10 +6,10 @@ include('header.php');
     <div class="page-nav no-margin row">
         <div class="container">
             <div class="row">
-                <h2>Our Events</h2>
+                <h2>Our Team</h2>
                 <ul>
                     <li> <a href="index.php"><i class="fas fa-home"></i> Home</a></li>
-                    <li><i class="fas fa-angle-double-right"></i> Events</li>
+                    <li><i class="fas fa-angle-double-right"></i>Team</li>
                 </ul>
             </div>
         </div>

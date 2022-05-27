@@ -40,13 +40,13 @@ while($row=mysqli_fetch_array($query))
                 </ul>
             </div>
             <div class="col-md-4 col-sm-12 map-img">
-                <h2>Contact Us</h2>
+                <h2>Contact Us
                 <address class="md-margin-bottom-40">
                     Rwanda-Kigali KG750 <br>
                     Ethiopia, Ethiopia<br>
                     Phone: +25078888888888 <br>
                     Email: <a href="mailto:ethanfoundation@gmail.com" class="">ethanfoundation@gmail.com</a><br>
-                    Web: <a href="www.thanfoundation.info" class="">www.thanfoundation.info</a>
+                    Web: <a href="www.thanfoundation.info" class="">www.thanfoundation.info</a> </h2>
                 </address>
 
             </div>
