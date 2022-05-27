@@ -64,6 +64,9 @@ while($row=mysqli_fetch_array($query))
               
             </div>
               <div class="donate-link col-md-3"><a href="donate.php" class="btn btn-primary "><span class="btn-title">Donate Now</span></a></div>
+              <li>
+                        <a href="https://web.whatsapp.com/send?text=<?php echo $currenturl;?>" target="_blank"> <i class="fab fa-whatsapp"></i></a>
+                        </li>
         </div>
         
     </div>
