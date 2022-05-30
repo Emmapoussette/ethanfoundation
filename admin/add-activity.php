@@ -35,7 +35,7 @@ $imgnewfile=md5($imgfile).$extension;
 move_uploaded_file($_FILES["activityimage"]["tmp_name"].$imgnewfile);
 
 $status=1;
-$query=mysqli_query($conn,"insert into activity (ActivityTitle,CategoryId,ActivityDetails,Is_Active,ActivityImage,postedBy) values('$activitytitle','$catid','$activitydetails','$status','$imgnewfile','$postedby')");
+$query=mysqli_query($conn,"insert into activity(ActivityTitle,CategoryId,ActivityDetails,Is_Active,ActivityImage,postedBy) values('$activitytitle','$catid','$activitydetails','$status','$imgnewfile','$postedby')");
 if($query)
 {
 $msg="Activity successfully added ";
@@ -165,7 +165,7 @@ function getSubCat(val) {
 <form name="addpost" method="post" enctype="multipart/form-data">
  <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Activity Title</label>
-<input type="text" class="form-control" id="posttitle" name="posttitle" placeholder="Enter title" required>
+<input type="text" class="form-control" id="activitytitle" name="activityttitle" placeholder="Enter title" required>
 </div>
 
 
@@ -203,7 +203,7 @@ while($result=mysqli_fetch_array($ret))
 <div class="col-sm-12">
  <div class="card-box">
 <h4 class="m-b-30 m-t-0 header-title"><b>Feature Image</b></h4>
-<input type="file" class="form-control" id="postimage" name="postimage"  required>
+<input type="file" class="form-control" id="activtyimage" name="activityimage"  required>
 </div>
 </div>
 </div>

@@ -167,7 +167,7 @@ function getSubCat(val) {
 <form name="addpost" method="post" enctype="multipart/form-data">
  <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Event Title</label>
-<input type="text" class="form-control" id="posttitle" name="posttitle" placeholder="Enter title" required>
+<input type="text" class="form-control" id="eventitle" name="eventtitle" placeholder="Enter title" required>
 </div>
 
 
