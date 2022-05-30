@@ -11,15 +11,15 @@ else{
 // For adding post  
 if(isset($_POST['submit']))
 {
-$eventtitle=$_POST['eventtitle'];
+$eventtitle=$_POST['EventTitle'];
 $catid=$_POST['category'];
-$raises=$_POST['raises'];
-$rest=$_POST['rest'];
-$eventdetails=$_POST['eventdetails'];
+$raises=$_POST['RaisesAmount'];
+$rest=$_POST['RestAmount'];
+$eventdetails=$_POST['EventDetails'];
 $postedby=$_SESSION['login'];
 $arr = explode(" ",$eventtitle);
 $url=implode("-",$arr);
-$imgfile=$_FILES["eventimage"]["name"];
+$imgfile=$_FILES["EventImage"]["name"];
 // get the image extension
 $extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
 // allowed extensions
