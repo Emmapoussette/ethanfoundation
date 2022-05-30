@@ -37,7 +37,7 @@ $imgnewfile=md5($imgfile).$extension;
 move_uploaded_file($_FILES["eventimage"]["tmp_name"],"eventimages/".$imgnewfile);
 
 $status=1;
-$query=mysqli_query($conn,"insert into events(id,EventTitle,CategoryId,RaisesAmount,RestAmount,EventDetails,Is_Active,EventImage,postedBy) values('$id','$eventtitle','$catid','$raises','$rest','$eventdetails','$status','$imgnewfile','$postedby')");
+$query=mysqli_query($conn,"insert into events(id,EventTitle,CategoryId,RaisesAmount,RestAmount,EventDetails,Is_Active,EventImage,postedBy) values('','$eventtitle','$catid','$raises','$rest','$eventdetails','$status','$imgnewfile','$postedby')");
 if($query)
 {
 $msg="Event successfully added ";
@@ -167,7 +167,7 @@ function getSubCat(val) {
 <form name="addpost" method="post" enctype="multipart/form-data">
  <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Event Title</label>
-<input type="text" class="form-control" id="eventitle" name="eventtitle" placeholder="Enter title" required>
+<input type="text" class="form-control" id="eventtitle" name="eventtitle" placeholder="Enter title" required>
 </div>
 
 
