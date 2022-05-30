@@ -20,7 +20,7 @@ $email=$_POST['email'];
 $comment=$_POST['comment'];
 $eventid=intval($_GET['nid']);
 $st1='0';
-$query=mysqli_query($con,"insert into comments(eventId,name,email,comment,status) values('$eventid','$name','$email','$comment','$st1')");
+$query=mysqli_query($conn,"insert into comments(eventId,name,email,comment,status) values('$eventid','$name','$email','$comment','$st1')");
 if($query):
   echo "<script>alert('comment successfully submit. Comment will be display after admin review ');</script>";
   unset($_SESSION['token']);
@@ -35,13 +35,13 @@ endif;
 $eventid =intval($_GET['nid']);
 
     $sql = "SELECT viewCounter FROM events WHERE id = '$eventid'";
-    $result = $con->query($sql);
+    $result = $n->query($sql);
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $visits = $row["viewCounter"];
             $sql = "UPDATE events SET viewCounter = $visits+1 WHERE id ='$eventid'";
-    $con->query($sql);
+    $conn->query($sql);
 
         }
     } else {
@@ -128,7 +128,7 @@ body {
 <?php
 $eid=intval($_GET['nid']);
 //$currenturl="https://".$_SERVER['HTTPS_HOST'] . $_SERVER['REQUEST_URI'];;
- $query=mysqli_query($con,"select events.EventTitle as eventtitle,events.EventImage,category.CategoryName as category,category.id as 
+ $query=mysqli_query($conn,"select events.EventTitle as eventtitle,events.EventImage,category.CategoryName as category,category.id as 
  cid,events.EventDetails as eventdetails,
  events.PostingDate as postingdate,events.postedBy,events.lastUpdatedBy,events.UpdationDate from events left join category on 
  category.id=events.CategoryId  where events.id='$eid'");
@@ -210,7 +210,7 @@ $pt=$row['eventdetails'];
 
  <?php 
  $sts=1;
- $query=mysqli_query($con,"select name,comment,postingDate from  comments where eventId='$eid' and status='$sts'");
+ $query=mysqli_query($conn,"select name,comment,postingDate from  comments where eventId='$eid' and status='$sts'");
 while ($row=mysqli_fetch_array($query)) {
 ?>
 <div class="media mb-4">

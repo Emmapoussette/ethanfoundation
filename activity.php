@@ -6,10 +6,10 @@ include('header.php');
      <div class="page-nav no-margin row">
         <div class="container">
             <div class="row">
-                <h2>Our Events</h2>
+                <h2>News</h2>
                 <ul>
                     <li> <a href="index.php"><i class="fas fa-home"></i> Home</a></li>
-                    <li><i class="fas fa-angle-double-right"></i> Activities</li>
+                    <li><i class="fas fa-angle-double-right"></i> News</li>
                 </ul>
             </div>
         </div>
@@ -21,7 +21,7 @@ include('header.php');
 
  
     <link rel="icon" href="icon_path" type="image/icon type">
-    <title>Ethan-Foundation| Activities</title>
+    <title>Ethan-Foundation|News</title>
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
         <link rel="icon" href="http://www.domain.com/favicon.ico" type="image/x-icon" />
 <link rel="shortcut icon" href="http://www.domain.com/favicon.ico" type="image/x-icon" /> 
