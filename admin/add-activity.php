@@ -32,10 +32,10 @@ else
 //rename the image file
 $imgnewfile=md5($imgfile).$extension;
 // Code for move image into directory
-move_uploaded_file($_FILES["activityimage"]["tmp_name"],"eventimages/".$imgnewfile);
+move_uploaded_file($_FILES["activityimage"]["tmp_name"].$imgnewfile);
 
 $status=1;
-$query=mysqli_query($conn,"insert into activity(ActivityTitle,CategoryId,ActivityDetails,Is_Active,ActivityImage,postedBy) values('$activitytitle','$catid','$activitydetails','$status','$imgnewfile','$postedby')");
+$query=mysqli_query($conn,"insert into activity (ActivityTitle,CategoryId,ActivityDetails,Is_Active,ActivityImage,postedBy) values('$activitytitle','$catid','$activitydetails','$status','$imgnewfile','$postedby')");
 if($query)
 {
 $msg="Activity successfully added ";
