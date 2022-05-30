@@ -11,11 +11,11 @@ else{
 // For adding post  
 if(isset($_POST['submit']))
 {
-$eventtitle=$_POST['EventTitle'];
+$eventtitle=$_POST['eventtitle'];
 $catid=$_POST['category'];
-$raises=$_POST['RaisesAmount'];
-$rest=$_POST['RestAmount'];
-$eventdetails=$_POST['EventDetails'];
+$raises=$_POST['raises'];
+$rest=$_POST['rest'];
+$eventdetails=$_POST['eventdetails'];
 $postedby=$_SESSION['login'];
 $arr = explode(" ",$eventtitle);
 $url=implode("-",$arr);
