@@ -17,7 +17,7 @@ $activitydetails=$_POST['activitydetails'];
 $postedby=$_SESSION['login'];
 $arr = explode(" ",$activitytitle);
 $url=implode("-",$arr);
-$imgfile=$_FILES["activityimage"]["name"];
+$imgfile=$_FILES["ActivityImage"]["name"];
 // get the image extension
 $extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
 // allowed extensions
