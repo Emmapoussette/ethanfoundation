@@ -35,7 +35,7 @@ $imgnewfile=md5($imgfile).$extension;
 move_uploaded_file($_FILES["activityimage"]["tmp_name"],"eventimages/".$imgnewfile);
 
 $status=1;
-$query=mysqli_query($conn,"insert into activity(ActivityTitle,CategoryId,ActivityDetails,EventUrl,Is_Active,ActivityImage,postedBy) values('$activitytitle','$catid','$activitydetails','$url','$status','$imgnewfile','$postedby')");
+$query=mysqli_query($conn,"insert into activity(ActivityTitle,CategoryId,ActivityDetails,Is_Active,ActivityImage,postedBy) values('$activitytitle','$catid','$activitydetails','$status','$imgnewfile','$postedby')");
 if($query)
 {
 $msg="Activity successfully added ";
