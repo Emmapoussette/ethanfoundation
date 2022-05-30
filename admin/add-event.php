@@ -15,7 +15,7 @@ $eventtitle=$_POST['eventtitle'];
 $catid=$_POST['category'];
 $raises=$_POST['raises'];
 $rest=$_POST['rest'];
-$eventdetails=$_POST['eventdescription'];
+$eventdetails=$_POST['eventdetails'];
 $postedby=$_SESSION['login'];
 $arr = explode(" ",$eventtitle);
 $url=implode("-",$arr);
@@ -34,7 +34,7 @@ else
 //rename the image file
 $imgnewfile=md5($imgfile).$extension;
 // Code for move image into directory
-move_uploaded_file($_FILES["postimage"]["tmp_name"],"eventimages/".$imgnewfile);
+move_uploaded_file($_FILES["eventimage"]["tmp_name"],"eventimages/".$imgnewfile);
 
 $status=1;
 $query=mysqli_query($conn,"insert into events(EventTitle,CategoryId,RaisesAmount,RestAmount,EventDetails,EventUrl,Is_Active,EventImage,postedBy) values('$eventtitle','$catid','$riases','$rest','$eventdetails','$url','$status','$imgnewfile','$postedby')");
