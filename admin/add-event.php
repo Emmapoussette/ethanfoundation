@@ -19,7 +19,7 @@ $eventdetails=$_POST['EventDetails'];
 $postedby=$_SESSION['login'];
 $arr = explode(" ",$eventtitle);
 $url=implode("-",$arr);
-$imgfile=$_FILES["EventImage"]["name"];
+$imgfile=$_FILES["eventimage"]["name"];
 // get the image extension
 $extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
 // allowed extensions
