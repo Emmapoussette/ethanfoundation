@@ -37,7 +37,7 @@
                                 </ul>
                             </li>  -->       
   <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Posts (Events) </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span>Events</span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
                                     <li><a href="add-event.php">Add events</a></li>
                                     <li><a href="manage-events.php">Manage Events</a></li>
