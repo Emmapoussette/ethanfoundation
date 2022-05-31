@@ -18,9 +18,9 @@ if (!empty($_POST['csrftoken'])) {
 $name=$_POST['name'];
 $email=$_POST['email'];
 $comment=$_POST['comment'];
-$eventid=intval($_GET['nid']);
+$activityid=intval($_GET['nid']);
 $st1='0';
-$query=mysqli_query($conn,"insert into comments(eventId,name,email,comment,status) values('$eventid','$name','$email','$comment','$st1')");
+$query=mysqli_query($conn,"insert into comments(activityId,name,email,comment,status) values('$activityid','$name','$email','$comment','$st1')");
 if($query):
   echo "<script>alert('comment successfully submit. Comment will be display after admin review ');</script>";
   unset($_SESSION['token']);
@@ -32,7 +32,7 @@ endif;
 }
 }
 }
-$eventid =intval($_GET['nid']);
+$activityid =intval($_GET['nid']);
 
     $sql = "SELECT viewCounter FROM activity WHERE id = '$activityid'";
     $result = $n->query($sql);
@@ -154,7 +154,7 @@ while ($row=mysqli_fetch_array($query)) {
                 </p>
                 <hr />
 
- <img class="img-fluid rounded" src="<?php echo htmlentities($row['EventImage']);?>" alt="<?php echo htmlentities($row['activitytitle']);?>">
+ <img class="img-fluid rounded" src="<?php echo htmlentities($row['ActivityImage']);?>" alt="<?php echo htmlentities($row['activitytitle']);?>">
   
               <p class="card-text"><?php 
 $pt=$row['activitydetails'];
