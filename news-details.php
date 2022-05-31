@@ -35,7 +35,7 @@ endif;
 $activityid =intval($_GET['nid']);
 
     $sql = "SELECT viewCounter FROM activity WHERE id = '$activityid'";
-    $result = $n->query($sql);
+    $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
