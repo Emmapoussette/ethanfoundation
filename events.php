@@ -32,8 +32,6 @@ $total_pages_sql = "SELECT COUNT(*) FROM events";
 $result = mysqli_query($conn,$total_pages_sql);
 $total_rows = mysqli_fetch_array($result)[0];
 $total_pages = ceil($total_rows / $no_of_records_per_page);
-include('initialize.php');
-include('classes/Master.php');
 /*$result="select events.id as eid,events.EventTitle as eventtitle,events.EventImage,category.CategoryName as category,category.id as
 cid,events.EventDetails as eventdetails,events.PostingDate as postingdate from events left join category on category.id=events.CategoryId
  where events.Is_Active=1 order by events.id desc ";*/
