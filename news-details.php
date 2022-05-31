@@ -226,6 +226,7 @@ while ($row=mysqli_fetch_array($query)) {
     </div>
 
   
+    <?php include('footer.php');?>
 
 
     <!-- Bootstr
