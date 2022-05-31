@@ -34,13 +34,13 @@ endif;
 }
 $eventid =intval($_GET['nid']);
 
-    $sql = "SELECT viewCounter FROM events WHERE id = '$eventid'";
+    $sql = "SELECT viewCounter FROM activity WHERE id = '$activityid'";
     $result = $n->query($sql);
 
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             $visits = $row["viewCounter"];
-            $sql = "UPDATE events SET viewCounter = $visits+1 WHERE id ='$eventid'";
+            $sql = "UPDATE activity SET viewCounter = $visits+1 WHERE id ='$activityid'";
     $conn->query($sql);
 
         }
