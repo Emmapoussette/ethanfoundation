@@ -11,7 +11,7 @@ else{
 if($_GET['action']='del')
 {
 $eventid=intval($_GET['eid']);
-$query=mysqli_query($conn,"updateActivity set Is_Active=0 where id='$eventid'");
+$query=mysqli_query($conn,"update events set Is_Active=0 where id='$eventid'");
 if($query)
 {
 $msg="Event deleted ";
