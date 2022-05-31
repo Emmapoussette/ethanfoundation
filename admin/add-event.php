@@ -37,7 +37,7 @@ $imgnewfile=md5($imgfile).$extension;
 move_uploaded_file($_FILES["eventimage"]["tmp_name"],"eventimages/".$imgnewfile);
 
 $status=1;
-$query=mysqli_query($conn,"insert into events(id,EventTitle,CategoryId,RaisesAmount,RestAmount,EventDetails,Is_Active,EventImage,postedBy) values('','$eventtitle','$catid','$raises','$rest','$eventdetails','$status','$imgnewfile','$postedby')");
+$query=mysqli_query($conn,"insert into events(EventTitle,CategoryId,RaisesAmount,RestAmount,EventDetails,Is_Active,EventImage,postedBy) values('$eventtitle','$catid','$raises','$rest','$eventdetails','$status','$imgnewfile','$postedby')");
 if($query)
 {
 $msg="Event successfully added ";
@@ -202,7 +202,7 @@ while($result=mysqli_fetch_array($ret))
 <div class="col-sm-12">
  <div class="card-box">
 <h4 class="m-b-30 m-t-0 header-title"><b>Event Details</b></h4>
-<textarea class="summernote" name="postdetails" required></textarea>
+<textarea class="summernote" name="eventdetails" required></textarea>
 </div>
 </div>
 </div>

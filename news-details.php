@@ -128,17 +128,14 @@ body {
 <?php
 $eid=intval($_GET['nid']);
 //$currenturl="https://".$_SERVER['HTTPS_HOST'] . $_SERVER['REQUEST_URI'];;
- $query=mysqli_query($conn,"select events.EventTitle as eventtitle,events.EventImage,category.CategoryName as category,category.id as 
- cid,events.EventDetails as eventdetails,
- events.PostingDate as postingdate,events.postedBy,events.lastUpdatedBy,events.UpdationDate from events left join category on 
- category.id=events.CategoryId  where events.id='$eid'");
+ $query=mysqli_query($conn,"select activity.ActivityTitle as activitytitle,activity.ActivityImage,category.CategoryName as category,category.id as cid,activity.ActivityDetails as activitydetails, activity.PostingDate as postingdate,activity.postedBy,activity.lastUpdatedBy,activity.UpdationDate from activity left join category on category.id=activity.CategoryId  where activity.id='$eid'");
 while ($row=mysqli_fetch_array($query)) {
 ?>
 
           <div class="card mb-4">
       
             <div class="card-body">
-              <h2 class="card-title"><?php echo htmlentities($row['eventtitle']);?></h2>
+              <h2 class="card-title"><?php echo htmlentities($row['activitytitle']);?></h2>
 <!--category-->
  <a class="badge bg-secondary text-decoration-none link-light" href="category.php?catid=<?php echo htmlentities($row['cid'])?>" style="color:#fff"><?php echo htmlentities($row['category']);?></a>
 <!--Subcategory--->
@@ -157,10 +154,10 @@ while ($row=mysqli_fetch_array($query)) {
                 </p>
                 <hr />
 
- <img class="img-fluid rounded" src="<?php echo htmlentities($row['EventImage']);?>" alt="<?php echo htmlentities($row['eventtitle']);?>">
+ <img class="img-fluid rounded" src="<?php echo htmlentities($row['EventImage']);?>" alt="<?php echo htmlentities($row['activitytitle']);?>">
   
               <p class="card-text"><?php 
-$pt=$row['eventdetails'];
+$pt=$row['activitydetails'];
               echo  (substr($pt,0));?></p>
              
             </div>
@@ -210,7 +207,7 @@ $pt=$row['eventdetails'];
 
  <?php 
  $sts=1;
- $query=mysqli_query($conn,"select name,comment,postingDate from  comments where eventId='$eid' and status='$sts'");
+ $query=mysqli_query($conn,"select name,comment,postingDate from  comments where activityId='$eid' and status='$sts'");
 while ($row=mysqli_fetch_array($query)) {
 ?>
 <div class="media mb-4">
