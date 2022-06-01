@@ -168,7 +168,7 @@ $pt=$row['activitydetails'];
           </div>
 <?php } ?>
        
-
+<br/>
 
      
 </div>
