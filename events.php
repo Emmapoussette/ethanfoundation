@@ -86,7 +86,7 @@ while ($row = mysqli_fetch_array($query)) {
         cid,events.EventDetails as eventdetails,events.PostingDate as postingdate from events left join category on category.id=events.CategoryId
          where events.Is_Active=1 order by events.id desc ";
 				$result = mysqli_query($conn, $query);
-        $imgfile=$_FILES["eventimage"]["name"];
+        $img_dir = $working_dir . "/eventimages/";
 				if(mysqli_num_rows($result) > 0)
 				{
 					while($row = mysqli_fetch_array($result))
@@ -96,7 +96,8 @@ while ($row = mysqli_fetch_array($query)) {
 			<div class="col-md-4">
 				<form method="post" action="donate.php?action=add&id=<?php echo $row["eid"]; ?>">
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
-          <img src="name/<?php echo $row['EventImage']; ?>" class="img-responsive" /><br />
+          <img src="<?php echo $row['EventImage']; ?>" class="img-responsive" /><br />
+          <img src="<?php echo "eventimages/" . $img_dir ?>">;
 						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
             <input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
 						<input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
