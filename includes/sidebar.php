@@ -23,7 +23,7 @@
               <div class="row">
                 <div class="col-lg-6">
                   <ul class="list-unstyled mb-0">
-<?php $query=mysqli_query($con,"select id,CategoryName from category");
+<?php $query=mysqli_query($conn,"select id,CategoryName from category");
 while($row=mysqli_fetch_array($query))
 {
 ?>
