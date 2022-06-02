@@ -96,6 +96,8 @@ while ($row = mysqli_fetch_array($query)) {
 				<form method="post" action="donate.php?action=add&id=<?php echo $row["eid"]; ?>">
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
           <p class="card-img-top" <?php echo htmlentities($row['eventtitle']);?>>
+          
+          <img src="<?php echo $row['EventImage'] ?>" class="img-responsive" /><br />
 
           <img src="uploadedevents/<?php echo $row['EventImage'] ?>" class="img-responsive" /><br />
 						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
