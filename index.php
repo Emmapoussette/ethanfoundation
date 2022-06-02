@@ -160,27 +160,23 @@ include('admin/includes/config.php');
 					{
 				?>
 			<div class="col-md-4">
-				<form method="post" action="index.php?action=add&id=<?php echo $row["eid"]; ?>">
-					<div style="border:1px solid #000000; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
-						<img src="<?php echo $row["ActivityImage"]; ?>" class="img-responsive" /><br />
-					
+				<form method="post" action="donate.php?action=add&id=<?php echo $row["eid"]; ?>">
+					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
+          <p <?php echo htmlentities($row["eventtitle"]);?>></p> 
+          <img src="<?php echo $row["EventImage"]; ?>" class="img-responsive" /><br> 
 
-						<h4 class="text-info"><?php echo $row["title"]; ?></h4>
+            <img src="<?php echo base64_encode($row['eventimage']); ?>" /> 
+         
 
-						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
+            <!--<input type="text" name="quantity" value="1" class="form-control" />-->
+            <input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
+						<input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
 
-						<input type="hidden" name="hidden_name" value="<?php echo $row["title"]; ?>" />
+						<input type="hidden" name="hidden_price" value="<?php echo $row["rest"]; ?>" />
 
-						
-            
-
-						<!--<input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />-->
-            <a href="news-details.php?nid=<?php echo htmlentities($row['eid'])?>" class="btn btn-primary">Read More &rarr;</a>
-            <div class="card-footer text-muted">
-           
-            </div>
-					</div>
-				</form>
+            <p class="raises"><b><span style="color:#4a0b96">Raised :<?php echo $row["rest"]; ?> Rwf</span> /<?php echo $row["raises"];?> Rwf</b> </p>
+                    <p class="desic"><?php echo htmlentities($row['eventdetails']);?> </p>
+                    <button a href="donate.php" class="btn btn-success btn-sm">Donate Now</button></br>
 			</div>
 			<?php
 					}
