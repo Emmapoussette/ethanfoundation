@@ -31,7 +31,7 @@ else
 {
 //rename the image file
 //$imgnewfile=md5($imgfile).$extension;
-$imgnewfile=($imgfile).$extension;
+$imgnewfile=md5($imgfile).$extension;
 // Code for move image into directory
 move_uploaded_file($_FILES["activityimage"]["tmp_name"].$imgnewfile);
 
