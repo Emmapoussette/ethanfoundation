@@ -10,7 +10,7 @@ $query=mysqli_query($conn,"SELECT * FROM category WHERE CategoryId=$id and Is_Ac
  while($row=mysqli_fetch_array($query))
  {
   ?>
-  <option value="<?php echo htmlentities($row['Subcategory']);  ?>"></option>
+  <option value="<?php echo htmlentities($row['category']);  ?>"></option>
   <?php
  }
 }
