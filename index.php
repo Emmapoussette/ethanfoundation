@@ -136,9 +136,7 @@ include('admin/includes/config.php');
             <section class="our-blog">
          	<div class="container">
         
-             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        
 	</head>
 	<body>
 		<br />
@@ -151,7 +149,7 @@ include('admin/includes/config.php');
 			<?php
 				$query = "select events.id as eid,events.EventTitle as eventtitle,events.RaisesAmount as raises,events.RestAmount as rest,events.EventImage,category.CategoryName as category,category.id as
         cid,events.EventDetails as eventdetails,events.PostingDate as postingdate from events left join category on category.id=events.CategoryId
-         where events.Is_Active=1 order by events.id desc ";
+         where events.Is_Active=1 order by events.id desc limit 3 ";
 				$result = mysqli_query($conn, $query);
 				if(mysqli_num_rows($result) > 0)
 				{
