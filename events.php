@@ -98,7 +98,8 @@ while ($row = mysqli_fetch_array($query)) {
           <p class="card-img-top" <?php echo htmlentities($row['eventtitle']);?>>
           <img src="<?php echo $row['EventImage'] ?>" class="img-responsive" /><br />
 				
-          <img src="<?php echo $row['eventimage'] ?>" class="img-responsive" /><br />  <!--<input type="text" name="quantity" value="1" class="form-control" />-->
+          <img src="<?php echo $row["$imgnewfile"] ?>" class="img-responsive" /><br />
+            <!--<input type="text" name="quantity" value="1" class="form-control" />-->
             <input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
 						<input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
 
