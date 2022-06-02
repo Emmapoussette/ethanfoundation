@@ -103,8 +103,8 @@ while ($row = mysqli_fetch_array($query)) {
                foreach ($stmt as $img) {
                ?>
                <li>
-                  <a href="<?= $img['EventImage']; ?>">
-                  <img data-caption="<?= $img['eventtitle']; ?>" src="<?= $img['EventImage']; ?>"></a>
+                  <a href="<?= $img['eventimage']; ?>">
+                  <img data-caption="<?= $img['eventtitle']; ?>" src="<?= $img['eventimage']; ?>"></a>
                </li>
                <?php } ?>
 
