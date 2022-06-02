@@ -136,7 +136,7 @@ include('admin/includes/config.php');
             <section class="our-blog">
          	<div class="container">
         
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+             <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</head>
@@ -146,19 +146,19 @@ include('admin/includes/config.php');
 			<br />
 			<br />
 			<br />
-			<!--<h3 align="center">Tutorial - <a href="http://www.webslesson.info/2016/08/simple-php-mysql-shopping-cart.html" title="Simple PHP Mysql Shopping Cart">Simple PHP Mysql Shopping Cart</a></h3><br />
---><br /><br />
+		
+			<br /><br />
 			<?php
-				//$query = "SELECT * FROM activity ORDER BY id ASC";
-        $query = " select events.id as eid,events.EventTitle as eventtitle,events.RaisesAmount as raises,events.RestAmount as rest,events.EventImage,category.CategoryName as category,category.id as
+				$query = "select events.id as eid,events.EventTitle as eventtitle,events.RaisesAmount as raises,events.RestAmount as rest,events.EventImage,category.CategoryName as category,category.id as
         cid,events.EventDetails as eventdetails,events.PostingDate as postingdate from events left join category on category.id=events.CategoryId
-         where events.Is_Active=1 order by events.id desc  limit 3"; 
+         where events.Is_Active=1 order by events.id desc ";
 				$result = mysqli_query($conn, $query);
 				if(mysqli_num_rows($result) > 0)
 				{
 					while($row = mysqli_fetch_array($result))
 					{
 				?>
+        
 			<div class="col-md-4">
 				<form method="post" action="donate.php?action=add&id=<?php echo $row["eid"]; ?>">
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
@@ -177,13 +177,20 @@ include('admin/includes/config.php');
             <p class="raises"><b><span style="color:#4a0b96">Raised :<?php echo $row["rest"]; ?> Rwf</span> /<?php echo $row["raises"];?> Rwf</b> </p>
                     <p class="desic"><?php echo htmlentities($row['eventdetails']);?> </p>
                     <button a href="donate.php" class="btn btn-success btn-sm">Donate Now</button></br>
+
+						<!--<input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />-->
+
+					</div>
+				</form>
 			</div>
 			<?php
 					}
 				}
-			?> 
-        		</div>
-         	</div>
+			?>
+			
+					
+		</div>
+	</div>
          </section>
 
    
