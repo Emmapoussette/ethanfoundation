@@ -147,29 +147,60 @@ include('admin/includes/config.php');
                         <button class="btn btn-success btn-sm">Donate Now</button>
                     </div>
                 </div>
-                  
-          <div class="card my-4">
-        
-<?php
-$query=mysqli_query($conn,"select activity.id as eid,activity.ActivityTitle as title,activity.ActivityDetails as details from activity left join category on category.id=activity.CategoryId 
- limit 3");
-while ($row=mysqli_fetch_array($query)) {
+                
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<br />
+		<div class="container">
+			<br />
+			<br />
+			<br />
+			<!--<h3 align="center">Tutorial - <a href="http://www.webslesson.info/2016/08/simple-php-mysql-shopping-cart.html" title="Simple PHP Mysql Shopping Cart">Simple PHP Mysql Shopping Cart</a></h3><br />
+--><br /><br />
+			<?php
+				//$query = "SELECT * FROM activity ORDER BY id ASC";
+        $query = " select activity.id as eid,activity.ActivityTitle as title,activity.ActivityImage,category.CategoryName as category,category.id as
+cid,activity.ActivityDetails as details,activity.PostingDate as postingdate from activity left join category on category.id=activity.CategoryId
+ where activity.Is_Active=1 order by activity.id desc limit 3"; 
+				$result = mysqli_query($conn, $query);
+				if(mysqli_num_rows($result) > 0)
+				{
+					while($row = mysqli_fetch_array($result))
+					{
+				?>
+			<div class="col-md-4">
+				<form method="post" action="index.php?action=add&id=<?php echo $row["eid"]; ?>">
+					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
+						<img src="<?php echo $row["ActivityImage"]; ?>" class="img-responsive" /><br />
+					
 
-?>
+						<h4 class="text-info"><?php echo $row["title"]; ?></h4>
+            <!--<h4 class="text-danger">$ <?php echo $row["price"]; ?></h4>-->
+						<h4 class="text-danger"> <?php echo $row["category"]; ?></h4>
 
-  <li>
-                      <a href="news-details.php?nid=<?php echo htmlentities($row['eid'])?>"><?php echo htmlentities($row['title']);?></a>
-                    </li>
-            <?php } ?>
-          </ul>
+						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
+
+						<input type="hidden" name="hidden_name" value="<?php echo $row["title"]; ?>" />
+
+						
+            <class="text-info"><?php echo $row["details"]; ?>
+
+						<!--<input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />-->
+            <a href="news-details.php?nid=<?php echo htmlentities($row['eid'])?>" class="btn btn-primary">Read More &rarr;</a>
+            <div class="card-footer text-muted">
+              Posted on <?php echo htmlentities($row['postingdate']);?>
+           
             </div>
-          </div>
-            </div>
-        </div>
-    </section>   
-    
-
-   
+					</div>
+				</form>
+			</div>
+			<?php
+					}
+				}
+			?> 
    
     <!-- ################# Charity Number Starts Here#######################--->
 
