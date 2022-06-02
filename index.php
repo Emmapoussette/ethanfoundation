@@ -149,9 +149,7 @@ include('admin/includes/config.php');
                 </div>
                   
           <div class="card my-4">
-            <h5 class="card-header">Recent Activities</h5>
-            <div class="card-body">
-                      <ul class="mb-0">
+        
 <?php
 $query=mysqli_query($conn,"select activity.id as eid,activity.ActivityTitle as title,activity.ActivityDetails as details from activity left join category on category.id=activity.CategoryId 
  limit 3");
