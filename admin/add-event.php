@@ -34,7 +34,15 @@ else
 //rename the image file
 $imgnewfile=md5($imgfile).$extension;
 // Code for move image into directory
-move_uploaded_file($_FILES["eventimage"]["tmp_name"],"uploadedevents".$imgnewfile);
+move_uploaded_file($_FILES["eventimage"]["tmp_name"],"uploadedevent".$imgnewfile);
+
+$filetmp   = $_FILES["file_img"]["tmp_name"];
+    $filename  = $_FILES["file_img"]["name"];
+    $filetype  = $_FILES["file_img"]["type"];
+    $filepath  = "uploadedevents/" . $filename;
+    $filetitle = $_POST['eventtitle'];
+    
+    move_uploaded_file($filetmp, $filepath);
 
 $status=1;
 $query=mysqli_query($conn,"insert into events(EventTitle,CategoryId,RaisesAmount,RestAmount,EventDetails,Is_Active,EventImage,postedBy) values('$eventtitle','$catid','$raises','$rest','$eventdetails','$status','$imgnewfile','$postedby')");
@@ -49,6 +57,7 @@ $error="Something went wrong . Please try again.";
 }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
