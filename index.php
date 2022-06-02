@@ -135,17 +135,11 @@ include('admin/includes/config.php');
             <div class="session-title row">
             <section class="our-blog">
          	<div class="container">
-        
-        
-	</head>
-	<body>
-		<br />
-		<div class="container">
-			<br />
-			<br />
-			<br />
-		
-			<br /><br />
+             <section class="our-blog">
+         	<div class="container">
+         		<div class="row session-title">
+        			<h2> Our Events</h2>
+    
 			<?php
 				$query = "select events.id as eid,events.EventTitle as eventtitle,events.RaisesAmount as raises,events.RestAmount as rest,events.EventImage,category.CategoryName as category,category.id as
         cid,events.EventDetails as eventdetails,events.PostingDate as postingdate from events left join category on category.id=events.CategoryId
