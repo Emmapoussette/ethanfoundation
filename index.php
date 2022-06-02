@@ -222,12 +222,11 @@ cid,activity.ActivityDetails as details,activity.PostingDate as postingdate from
 				?>
 			<div class="col-md-4">
 				<form method="post" action="index.php?action=add&id=<?php echo $row["eid"]; ?>">
-					<div style="border:1px solid #FF0000; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
+					<div style="border:1px solid #000000; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
 						<img src="<?php echo $row["ActivityImage"]; ?>" class="img-responsive" /><br />
 					
 
 						<h4 class="text-info"><?php echo $row["title"]; ?></h4>
-						<h4 class="text-danger"> <?php echo $row["category"]; ?></h4>
 
 						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
 
