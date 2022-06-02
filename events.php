@@ -96,21 +96,6 @@ while ($row = mysqli_fetch_array($query)) {
 				<form method="post" action="donate.php?action=add&id=<?php echo $row["eid"]; ?>">
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
 
-
-          <?php
-               require 'initialize.php';
-               $stmt = $dbc->query("SELECT * FROM events ORDER by eid ASC");
-               foreach ($stmt as $img) {
-               ?>
-               <li>
-                  <a href="<?= $img['eventimage']; ?>">
-                  <img data-caption="<?= $img['eventtitle']; ?>" src="<?= $img['eventimage']; ?>"></a>
-               </li>
-               <?php } ?>
-
-
-
-          
           <img src="eventimages/<?php echo $row['EventImage']; ?>" class="img-responsive" /><br />
 						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
             <input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
