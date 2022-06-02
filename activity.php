@@ -75,8 +75,7 @@ cid,activity.ActivityDetails as details,activity.PostingDate as postingdate from
 				<form method="post" action="index.php?action=add&id=<?php echo $row["eid"]; ?>">
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
 						<img src="<?php echo $row["ActivityImage"]; ?>" class="img-responsive" /><br />
-						<div style="color: rgb(212, 212, 212); background-color: rgb(30, 30, 30); font-family: Consolas, &quot;Courier New&quot;, monospace; line-height: 19px; white-space: pre;">
-						<span style="color: #ce9178;">"eventimage"</span>.</div>
+					
 
 						<h4 class="text-info"><?php echo $row["title"]; ?></h4>
             <!--<h4 class="text-danger">$ <?php echo $row["price"]; ?></h4>-->

@@ -147,24 +147,25 @@ include('admin/includes/config.php');
                         <button class="btn btn-success btn-sm">Donate Now</button>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="event-box">
-                        <img src="assets/images/events/.jpg" alt="">
-                        <h4>Child Education in Ethiopia</h4>
-                        <p class="raises"><span>Raised : $340,425</span> / $500,000 </p>
-                        <p class="desic"> </p>
-                        <button class="btn btn-success btn-sm">Donate Now</button>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6">
-                    <div class="event-box">
-                        <img src="assets/images/events/.jpg" alt="">
-                        <h4>Child Education in Africa</h4>
-                        <p class="raises"><span>Raised : $340,425</span> / $500,000 </p>
-                        <p class="desic"></p>
-                        <button class="btn btn-success btn-sm">Donate Now</button>
-                    </div>
-                </div>
+                  
+          <div class="card my-4">
+            <h5 class="card-header">Recent Activities</h5>
+            <div class="card-body">
+                      <ul class="mb-0">
+<?php
+$query=mysqli_query($conn,"select activity.id as eid,activity.ActivityTitle as title,activity.ActivityDetails as details from activity left join category on category.id=activity.CategoryId 
+ limit 3");
+while ($row=mysqli_fetch_array($query)) {
+
+?>
+
+  <li>
+                      <a href="news-details.php?nid=<?php echo htmlentities($row['eid'])?>"><?php echo htmlentities($row['title']);?></a>
+                    </li>
+            <?php } ?>
+          </ul>
+            </div>
+          </div>
             </div>
         </div>
     </section>   
