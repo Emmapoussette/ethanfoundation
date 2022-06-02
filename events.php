@@ -95,9 +95,7 @@ while ($row = mysqli_fetch_array($query)) {
 			<div class="col-md-4">
 				<form method="post" action="donate.php?action=add&id=<?php echo $row["eid"]; ?>">
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
-          <p <?php echo htmlentities($row["eventtitle"]);?>></p>
-
-          <img src="/<?php echo $row["EventImage"]; ?>" class="img-responsive" /><br> 
+          <p <?php echo htmlentities($row["eventtitle"]);?>></p> 
           <img src="<?php echo $row["EventImage"]; ?>" class="img-responsive" /><br> 
             <!--<input type="text" name="quantity" value="1" class="form-control" />-->
             <input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
@@ -107,7 +105,7 @@ while ($row = mysqli_fetch_array($query)) {
 
             <p class="raises"><b><span style="color:#4a0b96">Raised :<?php echo $row["rest"]; ?> Rwf</span> /<?php echo $row["raises"];?> Rwf</b> </p>
                     <p class="desic"><?php echo htmlentities($row['eventdetails']);?> </p>
-                    <button a href="donate.php" class="btn btn-success btn-sm">Donate Now</button>
+                    <button a href="donate.php" class="btn btn-success btn-sm">Donate Now</button></br>
 
 						<!--<input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />-->
 
