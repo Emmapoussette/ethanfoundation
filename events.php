@@ -26,7 +26,7 @@ include('header.php');
 }
 $no_of_records_per_page = 8;
 $offset = ($pageno-1) * $no_of_records_per_page;
-
+include('admin/add-event.php');
 include('includes/config.php');
 $total_pages_sql = "SELECT COUNT(*) FROM events";
 $result = mysqli_query($conn,$total_pages_sql);
@@ -96,8 +96,9 @@ while ($row = mysqli_fetch_array($query)) {
 				<form method="post" action="donate.php?action=add&id=<?php echo $row["eid"]; ?>">
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
           <p <?php echo htmlentities($row["eventtitle"]);?>></p>
-          <p class="desic"><?php echo htmlentities($row['eventtitle']);?> </p>
+
           <img src="/<?php echo $row["EventImage"]; ?>" class="img-responsive" /><br> 
+          <img src="eventimage/<?php echo $row["EventImage"]; ?>" class="img-responsive" /><br> 
             <!--<input type="text" name="quantity" value="1" class="form-control" />-->
             <input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
 						<input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
