@@ -97,6 +97,11 @@ while ($row = mysqli_fetch_array($query)) {
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
           <p <?php echo htmlentities($row["eventtitle"]);?>></p> 
           <img src="<?php echo $row["EventImage"]; ?>" class="img-responsive" /><br> 
+
+          <?php while($row = $result->fetch_assoc()){ ?> 
+            <img src="data:eventimage/jpg;charset=utf8;base64,<?php echo base64_encode($row['eventimage']); ?>" /> 
+        <?php } ?> 
+
             <!--<input type="text" name="quantity" value="1" class="form-control" />-->
             <input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
 						<input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />

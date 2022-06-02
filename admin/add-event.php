@@ -36,7 +36,7 @@ else
 
 $imgnewfile=($imgfile);
 // Code for move image into directory
-move_uploaded_file($_FILES["eventimage"]["tmp_name"],"uploadedevent".$imgnewfile);
+move_uploaded_file($_FILES["eventimage"]["tmp_name"],"eventimage".$imgnewfile);
 $status=1;
 $query=mysqli_query($conn,"insert into events(EventTitle,CategoryId,RaisesAmount,RestAmount,EventDetails,Is_Active,EventImage,postedBy) values('$eventtitle','$catid','$raises','$rest','$eventdetails','$status','$imgnewfile','$postedby')");
 if($query)
