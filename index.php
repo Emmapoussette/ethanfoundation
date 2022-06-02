@@ -133,21 +133,62 @@ include('admin/includes/config.php');
     <section class="events">
         <div class="container">
             <div class="session-title row">
-                <h2>Popular Events</h2>
-                <p>We are a Foundation raising money for child education</p> 
+            <section class="our-blog">
+         	<div class="container">
+        
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<br />
+		<div class="container">
+			<br />
+			<br />
+			<br />
+			<!--<h3 align="center">Tutorial - <a href="http://www.webslesson.info/2016/08/simple-php-mysql-shopping-cart.html" title="Simple PHP Mysql Shopping Cart">Simple PHP Mysql Shopping Cart</a></h3><br />
+--><br /><br />
+			<?php
+				//$query = "SELECT * FROM activity ORDER BY id ASC";
+        $query = " select events.id as eid,events.EventTitle as eventtitle,events.RaisesAmount as raises,events.RestAmount as rest,events.EventImage,category.CategoryName as category,category.id as
+        cid,events.EventDetails as eventdetails,events.PostingDate as postingdate from events left join category on category.id=events.CategoryId
+         where events.Is_Active=1 order by events.id desc  limit 3"; 
+				$result = mysqli_query($conn, $query);
+				if(mysqli_num_rows($result) > 0)
+				{
+					while($row = mysqli_fetch_array($result))
+					{
+				?>
+			<div class="col-md-4">
+				<form method="post" action="index.php?action=add&id=<?php echo $row["eid"]; ?>">
+					<div style="border:1px solid #000000; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
+						<img src="<?php echo $row["ActivityImage"]; ?>" class="img-responsive" /><br />
+					
+
+						<h4 class="text-info"><?php echo $row["title"]; ?></h4>
+
+						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
+
+						<input type="hidden" name="hidden_name" value="<?php echo $row["title"]; ?>" />
+
+						
+            
+
+						<!--<input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />-->
+            <a href="news-details.php?nid=<?php echo htmlentities($row['eid'])?>" class="btn btn-primary">Read More &rarr;</a>
+            <div class="card-footer text-muted">
+           
             </div>
-            <div class="event-ro row">
-                <div class="col-md-4 col-sm-6">
-                    <div class="event-box">
-                        <img src="assets/images/events/.jpg" alt="">
-                        <h4>Child Education in Rwanda</h4>
-                        
-                        <p class="raises"><span>Raised : 340,425RWF</span> / 500,000RWF </p>
-                        <p class="desic">Donate now to educate Rwandan Future </p>
-                        <button class="btn btn-success btn-sm">Donate Now</button>
-                    </div>
-                </div>
-                
+					</div>
+				</form>
+			</div>
+			<?php
+					}
+				}
+			?> 
+        		</div>
+         	</div>
+         </section>
 
    
     <!-- ################# Charity Number Starts Here#######################--->
