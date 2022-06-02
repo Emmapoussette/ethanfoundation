@@ -130,40 +130,9 @@ include('admin/includes/config.php');
 
     
      <!-- ################# Events Start Here#######################--->
-     <?php
-include('header.php');
-?>
-  <!--  ************************* Page Title Starts Here ************************** -->
-        
-    <div class="page-nav no-margin row">
-        <div class="container">
-            <div class="row">
-                <h2>Our Events</h2>
-                <ul>
-                    <li> <a href="index.php"><i class="fas fa-home"></i> Home</a></li>
-                    <li><i class="fas fa-angle-double-right"></i> Events</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    
-    
-   
-  <!-- ################# Events Start Here#######################--->
+
   <?php
-  if (isset($_GET['pageno'])) {
-    $pageno = $_GET['pageno'];
-} else {
-    $pageno = 1;
-}
-$no_of_records_per_page = 8;
-$offset = ($pageno-1) * $no_of_records_per_page;
-include('admin/add-event.php');
-include('includes/config.php');
-$total_pages_sql = "SELECT COUNT(*) FROM events";
-$result = mysqli_query($conn,$total_pages_sql);
-$total_rows = mysqli_fetch_array($result)[0];
-$total_pages = ceil($total_rows / $no_of_records_per_page);
+
 /*$result="select events.id as eid,events.EventTitle as eventtitle,events.EventImage,category.CategoryName as category,category.id as
 cid,events.EventDetails as eventdetails,events.PostingDate as postingdate from events left join category on category.id=events.CategoryId
  where events.Is_Active=1 order by events.id desc ";*/
