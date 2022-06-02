@@ -111,7 +111,7 @@ while ($row = mysqli_fetch_array($query)) {
 
 
           
-          <img src="./..<?php echo $row['EventImage']; ?>" class="img-responsive" /><br />
+          <img src="eventimages/<?php echo $row['EventImage']; ?>" class="img-responsive" /><br />
 						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
             <input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
 						<input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
