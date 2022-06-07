@@ -29,7 +29,7 @@ while($row=mysqli_fetch_array($query))
       <!-- /.row -->
 <?php } ?>  </p>
             </div>
-           <div class="col-md-4 col-sm-12">
+          <h3> <div class="col-md-4 col-sm-12">
                 <h2>Useful Links</h2>
                 <ul class="list-unstyled link-list">
                     <li><a ui-sref="about" href="about_us.php">About us</a><i class="fa fa-angle-right"></i></li>
@@ -67,7 +67,7 @@ while($row=mysqli_fetch_array($query))
             </div>
               <div class="donate-link col-md-3"><a href="donate.php" class="btn btn-primary "><span class="btn-title">Donate Now</span></a></div>
             
-        </div>
+        </div></h3>
         
     </div>
     
