@@ -92,6 +92,21 @@ while ($row = mysqli_fetch_array($query)) {
              </div>
           		
     <?php } }?>
+    <div class="col-md-4">
+				<form method="post">
+					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
+                    <img src="uploads/<?=$images['profile']?>" class="img-responsive" /><br />
+
+						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
+                    <p class="desic"><?php echo htmlentities($row['name']);?> </p>
+                    <p class="desic"><?php echo htmlentities($row['position']);?> </p>
+                  
+
+						<!--<input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />-->
+
+					</div>
+				</form>
+			</div>
 </body>
 </html>
                  

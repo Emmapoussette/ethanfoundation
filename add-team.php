@@ -1,6 +1,4 @@
-<?php
-include('header.php');
-?>
+
   <!--  ************************* Page Title Starts Here ************************** -->
         
     <div class="page-nav no-margin row">
@@ -8,7 +6,7 @@ include('header.php');
             <div class="row">
                 <h2>Our Team</h2>
                 <ul>
-                    <li> <a href="index.php"><i class="fas fa-home"></i> Home</a></li>
+                    <li> <a href="add-team.php"><i class="fas fa-home"></i> Home</a></li>
                     <li><i class="fas fa-angle-double-right"></i> Add Team</li>
                 </ul>
             </div>
@@ -50,7 +48,3 @@ include('includes/config.php');
      </form>
 </body>
 </html>
-<?php
-
-include('footer.php');
-?>
