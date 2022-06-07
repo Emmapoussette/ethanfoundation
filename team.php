@@ -21,8 +21,6 @@ include('header.php');
   <?php
 
 include('includes/config.php');
-include('initialize.php');
-include('classes/Master.php');
 /*$query = mysqli_query($conn,$result);
 while ($row = mysqli_fetch_array($query)) {
     ?>
@@ -54,7 +52,6 @@ while ($row = mysqli_fetch_array($query)) {
 
 
 ?>
-<?php include "db_conn.php"; ?>
 	<!--<style>
 		body {
 			display: flex;
