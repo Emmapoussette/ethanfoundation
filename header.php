@@ -31,9 +31,9 @@
         <div class="container">
             <div class="row col-det">
                 <div class="col-lg-6 d-none d-lg-block">
-                    <ul class="ulleft">
+                    <ul class="ulleft" >
                         <li>
-                            <i class="far fa-envelope"></i>
+                            <i class="far fa-envelope" ></i>
                             ethanfoundation@gmail.com
                             <span>|</span></li>
                         <li>
@@ -90,9 +90,9 @@
 
                             <ul class="navbad">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.php">Home </a>
+                                    <a class="nav-link" href="index.php" style="font-size: 12px;">Home </a>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="events.php">Events</a>
+                                    <a class="nav-link" href="events.php" style="font-size: 12px;">Events</a>
                                 </li>
 
                               <!--  <li class="nav-item">
@@ -100,18 +100,18 @@
                                 </li>-->
 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="activity.php">Activities</a>
+                                    <a class="nav-link" href="activity.php" style="font-size: 12px;">Activities</a>
                                 </li>
                                 
                                 <li class="nav-item">
-                                    <a class="nav-link" href="whatwedo.php">What We Do</a>
+                                    <a class="nav-link" href="whatwedo.php" style="font-size: 12px;">What We Do</a>
                                 </li>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="about_us.php">About Us</a>
+                                    <a class="nav-link" href="about_us.php"style="font-size: 12px;">About Us</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="contact_us.php">Help</a>
+                                    <a class="nav-link" href="contact_us.php" style="font-size: 12px;">Help</a>
                                 </li>
 
 

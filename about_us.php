@@ -179,40 +179,51 @@ while($row=mysqli_fetch_array($query))
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	</head>
 	<body>
-		<br />
+		<br /><br />
 		<div class="container">
-			<br />
-			<br />
-			<br />
-		
-			<br /><br />
+			<center><h1>Our Team </h1></center>
 			<?php
-				$query = "select team.id as tid,team.name as name,team.position as position,team.profile as profile from team ";
+				$query = "select team.id as tid,team.name as name,team.position as position,team.description as description,team.profile as profile from team WHERE Is_Active=1";
 				$result = mysqli_query($conn, $query);
 				if(mysqli_num_rows($result) > 0)
 				{
 					while($row = mysqli_fetch_array($result))
 					{
 				?>
-			<div class="col-md-4">
+			 <div class="col-md-12">
+        <div class="event-ro row">
+            <div class="col-md-4 ol-sm-6">
 				<form method="post">
-					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
-						<img src="img/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
+					<!--<div style="border:1px solid #333; background-color:#1e2436; border-radius:5px; padding:16px;" align="center">-->
+                        
+						<img src="admin/uploads/<?php echo $row["profile"]; ?>" style="width: 250px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 50%;" class="img-responsive" />
 
-						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
-                    <p class="desic"><?php echo htmlentities($row['name']);?> </p>
-                    <p class="desic"><?php echo htmlentities($row['position']);?> </p>
+                        <!--<div style="background-color:#1e2436;font-family: 'Source Code Pro';font-size: 20px; color: #FFF;">-->
+                            <div style="border:1px ; background-color:#f1f1f; border-radius:5px; font-size: 18px;" align="center-left">
+                    <p class="desic"><?php echo htmlentities($row['name']);?>
+                    <br /><i><?php echo htmlentities($row['position']);?></i> </p>
+                    <p><h5><?php echo htmlentities($row['description']);?></h5> </p>
+                    </div>
                   
-
-						<!--<input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />-->
 
 					</div>
 				</form>
 			</div>
+                    </div>
+                    </div>
+
 			<?php
 					}
 				}
 			?>
+            <br />
+			<br />
+			<br />
+		
+			<br /><br />
 			
 					
 		</div>

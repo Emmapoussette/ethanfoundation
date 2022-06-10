@@ -5,7 +5,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-sm-12">
-                <h2>About Us</h2>
+                <h1>About Us</h1>
                 <p>
                     
                 </p>
@@ -23,30 +23,29 @@ while($row=mysqli_fetch_array($query))
 
         <div class="col-lg-12">
 
-          <p><?php echo $row['Description'];?></p>
+       <p><h2>   <?php echo $row['Description'];?></h2></p>
         </div>
-      </div>
+      </div> 
       <!-- /.row -->
 <?php } ?>  </p>
             </div>
-          <h3> <div class="col-md-4 col-sm-12">
-                <h2>Useful Links</h2>
+          <div class="col-md-4 col-sm-12">
+                <h1>Useful Links</h1>
                 <ul class="list-unstyled link-list">
-                    <li><a ui-sref="about" href="about_us.php">About us</a><i class="fa fa-angle-right"></i></li>
+                    <li><a ui-sref="about" href="about_us.php"><h2>About us</h2></a><i class="fa fa-angle-right"></i></li>
                     <!--<li><a ui-sref="portfolio" href="#/portfolio">Portfolio</a><i class="fa fa-angle-right"></i></li>
                     <li><a ui-sref="products" href="#/products">Latest jobs</a><i class="fa fa-angle-right"></i></li>                    
                     <li><a ui-sref="contact" href="#/contact">Contact us</a><i class="fa fa-angle-right"></i></li>-->
-                    <li><a ui-sref="gallery" href="activities.php">Activities</a><i class="fa fa-angle-right"></i></li>
+                    <li><a ui-sref="gallery" href="activities.php"><h2>Activities</h2></a><i class="fa fa-angle-right"></i></li>
                 </ul>
             </div>
             <div class="col-md-4 col-sm-12 map-img">
-                <h2>Contact Us
+                <h1>Contact Us</h1>
                 <address class="md-margin-bottom-40">
                     Rwanda-Kigali KG750 <br>
                     Ethiopia, Ethiopia<br>
                     Phone: +25078888888888 <br>
-                    Email: <a href="mailto:ethanfoundation@gmail.com" class="">ethanfoundation@gmail.com</a><br>
-                    Web: <a href="www.thanfoundation.info" class="">www.thanfoundation.info</a> </h2>
+                    Email: <a href="mailto:ethanfoundation@gmail.com" style="font-size: 18px;" class="">ethanfoundation@gmail.com</a>
                 </address>
 
             </div>
@@ -67,7 +66,7 @@ while($row=mysqli_fetch_array($query))
             </div>
               <div class="donate-link col-md-3"><a href="donate.php" class="btn btn-primary "><span class="btn-title">Donate Now</span></a></div>
             
-        </div></h3>
+        </div>
         
     </div>
     

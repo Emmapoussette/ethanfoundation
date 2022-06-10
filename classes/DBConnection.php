@@ -10,8 +10,8 @@ $active_group = 'default';
 $query_builder = TRUE;
 // Connect to DB
 $conn = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
-
-/*if(!defined('DB_SERVER')){
+/*
+if(!defined('DB_SERVER')){
     require_once("../initialize.php");
 }
 class DBConnection{
@@ -39,7 +39,7 @@ class DBConnection{
     public function __destruct(){
         $this->conn->close();
     }
-}
-*/
+}*/
+
 
 ?>

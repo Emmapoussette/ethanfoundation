@@ -51,11 +51,7 @@ else{
                         <!--</span>-->
                         <!--<i>-->
                             <!--<img src="assets/images/logo_sm.png" alt="" height="28">-->
-                        <!--</i>-->
-                    <!--</a>-->
-                </div>
-
-                <!-- Button mobile view to collapse sidebar menu -->
+                        <!--</i>-->  <!-- Button mobile view to collapse sidebar menu -->
             <?php include('includes/topheader.php');?>
             </div>
             <!-- Top Bar End -->
@@ -64,6 +60,10 @@ else{
             <!-- ========== Left Sidebar Start ========== -->
     <?php include('includes/leftsidebar.php');?>
             <!-- Left Sidebar End -->
+                    <!--</a>-->
+                </div>
+
+              
 
 
 

@@ -17,35 +17,52 @@ $activitydetails=$_POST['activitydetails'];
 $postedby=$_SESSION['login'];
 $arr = explode(" ",$activitytitle);
 $url=implode("-",$arr);
-$imgfile=$_FILES["activityimage"]["name"];
-// get the image extension
-$extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
-// allowed extensions
-$allowed_extensions = array(".jpg","jpeg",".png",".gif");
-// Validation for allowed extensions .in_array() function searches an array for a specific value.
-if(!in_array($extension,$allowed_extensions))
-{
-echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
-}
-else
-{
-//rename the image file
-//$imgnewfile=md5($imgfile).$extension;
-$imgnewfile=md5($imgfile).$extension;
-// Code for move image into directory
-move_uploaded_file($_FILES["activityimage"]["tmp_name"],"eventimage".$imgnewfile);
+//$imgfile=$_FILES["activityimage"]["name"];
 
+$img_name = $_FILES['activityimage']['name'];
+	$img_size = $_FILES['activityimage']['size'];
+	$tmp_name = $_FILES['activityimage']['tmp_name'];
+	$error = $_FILES['activityimage']['error'];
+
+	if ($error === 0) {
+		if ($img_size > 125000000) {
+			$em = "Sorry, your file is too large.";
+		    header("Location: add-activity.php?error=$em");
+		}else {
+			$img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+			$img_ex_lc = strtolower($img_ex);
+
+			$allowed_exs = array("jpg", "jpeg", "png"); 
+
+			if (in_array($img_ex_lc, $allowed_exs)) {
+				$new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
+				$img_upload_path = 'uploads/'.$new_img_name;
+				move_uploaded_file($tmp_name, $img_upload_path);
+
+				// Insert into Database
+			
 $status=1;
-$query=mysqli_query($conn,"insert into activity(ActivityTitle,CategoryId,ActivityDetails,Is_Active,ActivityImage,postedBy) values('$activitytitle','$catid','$activitydetails','$status','$imgnewfile','$postedby')");
+$query=mysqli_query($conn,"insert into activity(ActivityTitle,CategoryId,ActivityDetails,Is_Active,ActivityImage,postedBy) values('$activitytitle','$catid','$activitydetails','$status','$new_img_name','$postedby')");
 if($query)
 {
-$msg="Activity successfully added ";
+$msg="Event successfully added ";
 }
 else{
 $error="Something went wrong . Please try again.";    
-} 
-
 }
+				mysqli_query($conn, $sql);
+				header("Location: manage-activities.php");
+			}else {
+				$em = "You can't upload files of this type";
+		        header("Location: add-activity.php?error=$em");
+			}
+		}
+
+}else {
+	header("Location: add-event.php");
+}
+ 
+
 }
 ?>
 <!DOCTYPE html>
@@ -166,7 +183,7 @@ function getSubCat(val) {
 <form name="addpost" method="post" enctype="multipart/form-data">
  <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Activity Title</label>
-<input type="text" class="form-control" id="activitytitle" name="activityttitle" placeholder="Enter title" required>
+<input type="text" class="form-control" id="activitytitle" name="activitytitle" placeholder="Enter title" required>
 </div>
 
 
@@ -194,7 +211,7 @@ while($result=mysqli_fetch_array($ret))
 <div class="col-sm-12">
  <div class="card-box">
 <h4 class="m-b-30 m-t-0 header-title"><b>Activity Details</b></h4>
-<textarea class="summernote" name="postdescription" required></textarea>
+<textarea class="summernote" name="activitydetails" required></textarea>
 </div>
 </div>
 </div>

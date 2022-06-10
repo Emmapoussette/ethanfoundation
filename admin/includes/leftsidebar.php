@@ -4,7 +4,7 @@
                     <!--- Sidemenu -->
                     <div id="sidebar-menu">
                         <ul>
-                        	<!--<li class="menu-title">Navigation</li>-->
+                        <!--	<li class="menu-title">Navigation</li>-->
 
                             <li class="has_sub">
                                 <a href="dashboard.php" class="waves-effect"><i class="mdi mdi-view-dashboard"></i> <span> Dashboard </span> </a>
@@ -61,9 +61,9 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Team Mambers </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="add-post.php">Add member</a></li>
-                                    <li><a href="manage-posts.php">Manage Team</a></li>
-                                     <li><a href="trash-posts.php">Trash Member</a></li>
+                                    <li><a href="add-team.php">Add member</a></li>
+                                    <li><a href="manage-team.php">Manage Team</a></li>
+                                     <li><a href="trash-team.php">Trash Member</a></li>
                                 </ul>
                             </li>  
                              <!--          
@@ -102,63 +102,11 @@
 
                     <div class="help-box">
                         <h5 class="text-muted m-t-0">For Help ?</h5>
-                        <p class=""><span class="text-custom">Email:</span> <br/> ethanfoudation@gmail.com</p>
+                        <p class=""><span class="text-custom">Email:</span> <br/>myemail@gmail.com</p>
                     </div>
 
                 </div>
                 <!-- Sidebar -left -->
 
             </div>
-            <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/detect.js"></script>
-        <script src="assets/js/fastclick.js"></script>
-        <script src="assets/js/jquery.blockUI.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/jquery.scrollTo.min.js"></script>
-        <script src="../plugins/switchery/switchery.min.js"></script>
-
-        <!--Summernote js-->
-        <script src="../plugins/summernote/summernote.min.js"></script>
-        <!-- Select 2 -->
-        <script src="../plugins/select2/js/select2.min.js"></script>
-        <!-- Jquery filer js -->
-        <script src="../plugins/jquery.filer/js/jquery.filer.min.js"></script>
-
-        <!-- page specific js -->
-        <script src="assets/pages/jquery.blog-add.init.js"></script>
-
-        <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
-
-        <script>
-
-            jQuery(document).ready(function(){
-
-                $('.summernote').summernote({
-                    height: 240,                 // set editor height
-                    minHeight: null,             // set minimum height of editor
-                    maxHeight: null,             // set maximum height of editor
-                    focus: false                 // set focus to editable area after initializing summernote
-                });
-                // Select2
-                $(".select2").select2();
-
-                $(".select2-limiting").select2({
-                    maximumSelectionLength: 2
-                });
-            });
-        </script>
-  <script src="../plugins/switchery/switchery.min.js"></script>
-
-        <!--Summernote js-->
-        <script src="../plugins/summernote/summernote.min.js"></script>
-
     
-
-
-    </body>
-</html>

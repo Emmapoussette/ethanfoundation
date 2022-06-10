@@ -6,39 +6,61 @@ if(strlen($_SESSION['login'])==0)
   { 
 header('location:index.php');
 }
-else{
+else{  
 if(isset($_POST['update']))
 {
 
-$imgfile=$_FILES["postimage"]["name"];
+//$imgfile=$_FILES["eventimage"]["name"];
 // get the image extension
-$extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
+//$extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
 // allowed extensions
-$allowed_extensions = array(".jpg","jpeg",".png",".gif");
+//$allowed_extensions = array(".jpg","jpeg",".png",".gif");
 // Validation for allowed extensions .in_array() function searches an array for a specific value.
-if(!in_array($extension,$allowed_extensions))
-{
-echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
-}
-else
-{
+//if(!in_array($extension,$allowed_extensions))
+//{
+//echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
+//}
+//else
+//{
 //rename the image file
-$imgnewfile=md5($imgfile).$extension;
+//$imgnewfile=md5($imgfile).$extension;
 // Code for move image into directory
-move_uploaded_file($_FILES["postimage"]["tmp_name"],"postimages/".$imgnewfile);
+//move_uploaded_file($_FILES["postimage"]["tmp_name"],"postimages/".$imgnewfile);
+$img_name = $_FILES['eventimage']['name'];
+	$img_size = $_FILES['eventimage']['size'];
+	$tmp_name = $_FILES['eventimage']['tmp_name'];
+	$error = $_FILES['eventimage']['error'];
+
+	if ($error === 0) {
+		if ($img_size > 125000000) {
+			$em = "Sorry, your file is too large.";
+		    header("Location: change-image.php?error=$em");
+		}else {
+			$img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+			$img_ex_lc = strtolower($img_ex);
+
+			$allowed_exs = array("jpg", "jpeg", "png"); 
+
+			if (in_array($img_ex_lc, $allowed_exs)) {
+				$new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
+				$img_upload_path = 'uploads/'.$new_img_name;
+				move_uploaded_file($tmp_name, $img_upload_path);
 
 
 
-$postid=intval($_GET['pid']);
-$query=mysqli_query($con,"update posts set PostImage='$imgnewfile' where id='$postid'");
+
+$eventid=intval($_GET['eid']);
+$query=mysqli_query($conn,"update events set EventImage='$new_img_name' where id='$eventid'");
 if($query)
 {
-$msg="Post Feature Image updated ";
+$msg="Event Feature Image updated ";
 }
 else{
 $error="Something went wrong . Please try again.";    
 } 
 }
+}
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -52,7 +74,7 @@ $error="Something went wrong . Please try again.";
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Ethan-Foundation| Add Post</title>
+        <title>Ethan-Foundation| Add Event</title>
 
         <!-- Summernote css -->
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
@@ -74,7 +96,7 @@ $error="Something went wrong . Please try again.";
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
         <script src="assets/js/modernizr.min.js"></script>
- <script>
+ <!--<script>
 function getSubCat(val) {
   $.ajax({
   type: "POST",
@@ -85,7 +107,7 @@ function getSubCat(val) {
   }
   });
   }
-  </script>
+  </script>-->
     </head>
 
 
@@ -123,7 +145,7 @@ function getSubCat(val) {
                                             <a href="#"> Posts </a>
                                         </li>
                                            <li>
-                                            <a href="#"> Edit Posts </a>
+                                            <a href="#"> Edit Events </a>
                                         </li>
                                         <li class="active">
                                            Update Image
@@ -155,8 +177,8 @@ function getSubCat(val) {
 </div>
 <form name="addpost" method="post" enctype="multipart/form-data">
 <?php
-$postid=intval($_GET['pid']);
-$query=mysqli_query($con,"select PostImage,PostTitle from posts where id='$postid' and Is_Active=1 ");
+$eventid=intval($_GET['eid']);
+$query=mysqli_query($conn,"select EventImage,EventTitle from events where id='$eventid' and Is_Active=1 ");
 while($row=mysqli_fetch_array($query))
 {
 ?>
@@ -166,8 +188,8 @@ while($row=mysqli_fetch_array($query))
                                     <div class="">
                                         <form name="addpost" method="post">
  <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Post Title</label>
-<input type="text" class="form-control" id="posttitle" value="<?php echo htmlentities($row['PostTitle']);?>" name="posttitle"  readonly>
+<label for="exampleInputEmail1">Event Title</label>
+<input type="text" class="form-control" id="eventtitle" value="<?php echo htmlentities($row['EventTitle']);?>" name="eventtitle"  readonly>
 </div>
 
 
@@ -176,7 +198,7 @@ while($row=mysqli_fetch_array($query))
 <div class="col-sm-12">
  <div class="card-box">
 <h4 class="m-b-30 m-t-0 header-title"><b>Current Post Image</b></h4>
-<img src="postimages/<?php echo htmlentities($row['PostImage']);?>" width="300"/>
+<img src="uploads/<?php echo htmlentities($row['EventImage']);?>" width="300"/>
 <br />
 
 </div>
@@ -188,7 +210,7 @@ while($row=mysqli_fetch_array($query))
 <div class="col-sm-12">
  <div class="card-box">
 <h4 class="m-b-30 m-t-0 header-title"><b>New Feature Image</b></h4>
-<input type="file" class="form-control" id="postimage" name="postimage"  required>
+<input type="file" class="form-control" id="eventimage" name="eventimage"  required>
 </div>
 </div>
 </div>

@@ -26,7 +26,6 @@ include('header.php');
 }
 $no_of_records_per_page = 8;
 $offset = ($pageno-1) * $no_of_records_per_page;
-include('admin/add-event.php');
 include('includes/config.php');
 $total_pages_sql = "SELECT COUNT(*) FROM events";
 $result = mysqli_query($conn,$total_pages_sql);
@@ -96,19 +95,16 @@ while ($row = mysqli_fetch_array($query)) {
 				<form method="post" action="donate.php?action=add&id=<?php echo $row["eid"]; ?>">
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
           <p <?php echo htmlentities($row["eventtitle"]);?>></p> 
-          <img src="<?php echo $row["EventImage"]; ?>" class="img-responsive" /><br> 
+          <a href="<?php echo htmlentities($row["eventdetails"]);?>"><img src="admin/uploads/<?php echo $row["EventImage"]; ?>" class="img-responsive" /><br> </a>
 
-            <img src="<?php echo base64_encode($row['eventimage']); ?>" /> 
          
 
             <!--<input type="text" name="quantity" value="1" class="form-control" />-->
-            <input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
-						<input type="hidden" name="hidden_name" value="<?php echo $row["eventdetails"]; ?>" />
 
 						<input type="hidden" name="hidden_price" value="<?php echo $row["rest"]; ?>" />
 
             <p class="raises"><b><span style="color:#4a0b96">Raised :<?php echo $row["rest"]; ?> Rwf</span> /<?php echo $row["raises"];?> Rwf</b> </p>
-                    <p class="desic"><?php echo htmlentities($row['eventdetails']);?> </p>
+                    <p class="desic"><?php echo htmlentities($row['eventtitle']);?> </p>
                     <button a href="donate.php" class="btn btn-success btn-sm">Donate Now</button></br>
 
 						<!--<input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />-->

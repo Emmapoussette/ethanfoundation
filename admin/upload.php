@@ -7,8 +7,6 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
 	print_r($_FILES['my_image']);
 	echo "</pre>";
 
-	$name=$_POST['name'];
-    $position=$_POST['position'];
     $img_name = $_FILES['my_image']['name'];
 	$img_size = $_FILES['my_image']['size'];
 	$tmp_name = $_FILES['my_image']['tmp_name'];
@@ -33,7 +31,7 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
 				$sql = "INSERT INTO team(name,position,profile) 
 				        VALUES('$name','$position','$new_img_name')";
 				mysqli_query($conn, $sql);
-				header("Location: team.php");
+				header("Location: dashboard.php");
 			}else {
 				$em = "You can't upload files of this type";
 		        header("Location: add-team.php?error=$em");
@@ -45,5 +43,5 @@ if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
 	}
 
 }else {
-	header("Location: team.php");
+	header("Location: dashboard.php");
 }

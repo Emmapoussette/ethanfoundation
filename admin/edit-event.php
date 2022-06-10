@@ -11,14 +11,14 @@ if(isset($_POST['update']))
 {
 $eventtitle=$_POST['eventtitle'];
 $catid=$_POST['category'];
-$raises=$_POST['raisesamount'];
-$rest=$_POST['restamount'];
-$eventdetails=$_POST['eventdescription'];
+$raises=$_POST['raises'];
+$rest=$_POST['rest'];
+$eventdetails=$_POST['eventdetails'];
 $postedby=$_SESSION['login'];
 $arr = explode(" ",$eventtitle);
 $status=1;
 $eventid=intval($_GET['eid']);
-$query=mysqli_query($conn,"update events set EventTitle='$eventtitle',CategoryId='$catid',RaisesAmount='$raises',RestAmount='$rest',EventDetails='$eventdetails',EventUrl='$url',Is_Active='$status',lastUpdatedBy='$lastuptdby' where id='$eventid'");
+$query=mysqli_query($conn,"update events set EventTitle='$eventtitle',CategoryId='$catid',RaisesAmount='$raises',RestAmount='$rest',EventDetails='$eventdetails',Is_Active='$status',lastUpdatedBy='$lastuptdby' where id='$eventid'");
 if($query)
 {
 $msg="Event updated ";
@@ -139,6 +139,7 @@ function getSubCat(val) {
 </div>
 </div>
 
+
 <?php
 $eventid=intval($_GET['eid']);
 $query=mysqli_query($conn,"select events.id as eventid,events.EventImage,events.EventTitle as title,events.EventDetails,category.CategoryName as 
@@ -155,7 +156,7 @@ while($row=mysqli_fetch_array($query))
                                         <form name="addpost" method="post">
  <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Event Title</label>
-<input type="text" class="form-control" id="posttitle" value="<?php echo htmlentities($row['title']);?>" name="posttitle" placeholder="Enter title" required>
+<input type="text" class="form-control" id="eventtitle" value="<?php echo htmlentities($row['title']);?>" name="eventtitle" placeholder="Enter title" required>
 </div>
 
 
@@ -178,11 +179,11 @@ while($result=mysqli_fetch_array($ret))
     
 <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Raises Amount</label>
-<input type="text" class="form-control" id="posttitle" value="<?php echo htmlentities($row['raises']);?>" name="posttitle" placeholder="Enter Amount" required>
+<input type="text" class="form-control" id="raises" value="<?php echo htmlentities($row['raises']);?>" name="raises" placeholder="Enter Amount" required>
 </div>
 <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Rest Amount</label>
-<input type="text" class="form-control" id="posttitle" value="<?php echo htmlentities($row['rest']);?>" name="posttitle" placeholder="Enter Amount" required>
+<input type="text" class="form-control" id="rest" value="<?php echo htmlentities($row['rest']);?>" name="rest" placeholder="Enter Amount" required>
 </div>
          
 
@@ -190,7 +191,7 @@ while($result=mysqli_fetch_array($ret))
 <div class="col-sm-12">
  <div class="card-box">
 <h4 class="m-b-30 m-t-0 header-title"><b>Event Details</b></h4>
-<textarea class="summernote" name="postdescription" required><?php echo htmlentities($row['PostDetails']);?></textarea>
+<textarea class="summernote" name="eventdetails" required><?php echo htmlentities($row['EventDetails']);?></textarea>
 </div>
 </div>
 </div>
@@ -199,7 +200,7 @@ while($result=mysqli_fetch_array($ret))
 <div class="col-sm-12">
  <div class="card-box">
 <h4 class="m-b-30 m-t-0 header-title"><b>Event Image</b></h4>
-<img src="eventimages/<?php echo htmlentities($row['EventImage']);?>" width="300"/>
+<img src="uploads/<?php echo htmlentities($row['EventImage']);?>" width="300"/>
 <br />
 <a href="change-image.php?eid=<?php echo htmlentities($row['eventid']);?>">Update Image</a>
 </div>

@@ -146,7 +146,7 @@ $countactivity=mysqli_num_rows($query);
                   
                         </div>
                         <!-- end row -->
-   
+    
    <div class="row">
                     
       <a href="trash-acrivity.php"> <div class="col-lg-4 col-md-4 col-sm-6">
@@ -162,7 +162,25 @@ $countevents=mysqli_num_rows($query);
                                     </div>
                                 </div>
                             </div></a>
-</div>
+</div>                     <a href="add-team.php">                       
+        <div class="col-lg-4 col-md-4 col-sm-6">
+                                <div class="card-box widget-box-one">
+                                    <i class="mdi mdi-layers widget-one-icon"></i>
+                                    <div class="wigdet-one-content">
+                                        <p class="m-0 text-uppercase font-600 font-secondary text-overflow" title="User This Month">Team</p>
+<?php $query=mysqli_query($conn,"select * from team");
+$countteam=mysqli_num_rows($query);
+?>
+                                        <h2><?php echo htmlentities($countteam);?> <small></small></h2>
+                              
+                                    </div>
+                                </div>
+                            </div><!-- end col -->
+</a>
+                
+                  
+                        </div>
+                        <!-- end row -->
 
                     </div> <!-- container -->
 
@@ -237,36 +255,7 @@ $countevents=mysqli_num_rows($query);
         </script>
 
         <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/detect.js"></script>
-        <script src="assets/js/fastclick.js"></script>
-        <script src="assets/js/jquery.blockUI.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/jquery.scrollTo.min.js"></script>
-        <script src="../plugins/switchery/switchery.min.js"></script>
-
-        <!-- Counter js  -->
-        <script src="../plugins/waypoints/jquery.waypoints.min.js"></script>
-        <script src="../plugins/counterup/jquery.counterup.min.js"></script>
-
-        <!--Morris Chart-->
-		<script src="../plugins/morris/morris.min.js"></script>
-		<script src="../plugins/raphael/raphael-min.js"></script>
-
-        <!-- Dashboard init -->
-        <script src="assets/pages/jquery.dashboard.js"></script>
-
-        <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
-
-    </body>
-    <script>
-            var resizefunc = [];
-        </script>
-
+    
         <!-- jQuery  -->
         <script src="assets/js/jquery.min.js"></script>
         <script src="assets/js/bootstrap.min.js"></script>
@@ -317,54 +306,3 @@ $countevents=mysqli_num_rows($query);
 </html>
 <?php } ?>
 
-<script>
-            var resizefunc = [];
-        </script>
-
-        <!-- jQuery  -->
-        <script src="assets/js/jquery.min.js"></script>
-        <script src="assets/js/bootstrap.min.js"></script>
-        <script src="assets/js/detect.js"></script>
-        <script src="assets/js/fastclick.js"></script>
-        <script src="assets/js/jquery.blockUI.js"></script>
-        <script src="assets/js/waves.js"></script>
-        <script src="assets/js/jquery.slimscroll.js"></script>
-        <script src="assets/js/jquery.scrollTo.min.js"></script>
-        <script src="../plugins/switchery/switchery.min.js"></script>
-
-        <!--Summernote js-->
-        <script src="../plugins/summernote/summernote.min.js"></script>
-        <!-- Select 2 -->
-        <script src="../plugins/select2/js/select2.min.js"></script>
-        <!-- Jquery filer js -->
-        <script src="../plugins/jquery.filer/js/jquery.filer.min.js"></script>
-
-        <!-- page specific js -->
-        <script src="assets/pages/jquery.blog-add.init.js"></script>
-
-        <!-- App js -->
-        <script src="assets/js/jquery.core.js"></script>
-        <script src="assets/js/jquery.app.js"></script>
-
-        <script>
-
-            jQuery(document).ready(function(){
-
-                $('.summernote').summernote({
-                    height: 240,                 // set editor height
-                    minHeight: null,             // set minimum height of editor
-                    maxHeight: null,             // set maximum height of editor
-                    focus: false                 // set focus to editable area after initializing summernote
-                });
-                // Select2
-                $(".select2").select2();
-
-                $(".select2-limiting").select2({
-                    maximumSelectionLength: 2
-                });
-            });
-        </script>
-  <script src="../plugins/switchery/switchery.min.js"></script>
-
-        <!--Summernote js-->
-        <script src="../plugins/summernote/summernote.min.js"></script>

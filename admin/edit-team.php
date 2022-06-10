@@ -7,44 +7,22 @@ if(strlen($_SESSION['login'])==0)
 header('location:index.php');
 }
 else{
-
-// For adding post  
-if(isset($_POST['submit']))
+if(isset($_POST['update']))
 {
-$activitytitle=$_POST['activitytitle'];
-$catid=$_POST['category'];
-$activitydetails=$_POST['activitydescription'];
-$postedby=$_SESSION['login'];
-$arr = explode(" ",$activitytitle);
-$url=implode("-",$arr);
-$imgfile=$_FILES["activityimage"]["name"];
-// get the image extension
-$extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
-// allowed extensions
-$allowed_extensions = array(".jpg","jpeg",".png",".gif");
-// Validation for allowed extensions .in_array() function searches an array for a specific value.
-if(!in_array($extension,$allowed_extensions))
-{
-echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
-}
-else
-{
-//rename the image file
-$imgnewfile=md5($imgfile).$extension;
-// Code for move image into directory
-move_uploaded_file($_FILES["postimage"]["tmp_name"],"eventimages/".$imgnewfile);
-
+$name=$_POST['name'];
+$position=$_POST['position'];
+$description=$_POST['description'];
 $status=1;
-$query=mysqli_query($conn,"insert into activity(ActivityTitle,CategoryId,ActivityDetails,EventUrl,Is_Active,ActivityImage,postedBy) values('$activitytitle','$catid','$activitydetails','$url','$status','$imgnewfile','$postedby')");
+$teamid=intval($_GET['tid']);
+$query=mysqli_query($conn,"update team set name='$name',position='$position',description='$description',Is_Active='$status'  where id='$teamid'");
 if($query)
 {
-$msg="Activity successfully added ";
+$msg="Team updated ";
 }
 else{
 $error="Something went wrong . Please try again.";    
 } 
 
-}
 }
 ?>
 <!DOCTYPE html>
@@ -58,7 +36,7 @@ $error="Something went wrong . Please try again.";
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Ethan-Foundation| Add Acvity</title>
+        <title>Ethan-Foundation| UpdateTeam</title>
 
         <!-- Summernote css -->
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
@@ -80,7 +58,7 @@ $error="Something went wrong . Please try again.";
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
         <script src="assets/js/modernizr.min.js"></script>
- <script>
+<!-- <script>
 function getSubCat(val) {
   $.ajax({
   type: "POST",
@@ -91,7 +69,7 @@ function getSubCat(val) {
   }
   });
   }
-  </script>
+  </script>-->
     </head>
 
 
@@ -120,16 +98,16 @@ function getSubCat(val) {
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Add Activity </h4>
+                                    <h4 class="page-title">Edit Team</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
-                                            <a href="#">Post</a>
+                                            <a href="#">Admin</a>
                                         </li>
                                         <li>
-                                            <a href="#">Add Activity </a>
+                                            <a href="#"> Posts </a>
                                         </li>
                                         <li class="active">
-                                            Add Activity
+                                            Edits Team
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -157,61 +135,54 @@ function getSubCat(val) {
 </div>
 </div>
 
-
+<?php
+$teamid=intval($_GET['tid']);
+$query=mysqli_query($conn,"select id as teamid,profile,name,position,description from team where team.id='$teamid' and Is_Active=1 ");
+while($row=mysqli_fetch_array($query))
+{
+?>
                         <div class="row">
                             <div class="col-md-10 col-md-offset-1">
                                 <div class="p-6">
                                     <div class="">
-<form name="addpost" method="post" enctype="multipart/form-data">
+                                        <form name="addpost" method="post">
  <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Activity Title</label>
-<input type="text" class="form-control" id="posttitle" name="posttitle" placeholder="Enter title" required>
+<label for="exampleInputEmail1">Full name</label>
+<input type="text" class="form-control" id="name" value="<?php echo htmlentities($row['name']);?>" name=" name" placeholder="Enter Full Name" required>
 </div>
 
 
 
 <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Category</label>
-<select class="form-control" name="category" id="category"  required>
-<option value="">Select Category </option>
-<?php
-// Feching active categories
-$ret=mysqli_query($conn,"select id,CategoryName from category where Is_Active=1");
-while($result=mysqli_fetch_array($ret))
-{    
-?>
-<option value="<?php echo htmlentities($result['id']);?>"><?php echo htmlentities($result['CategoryName']);?></option>
+<label for="exampleInputEmail1">Position</label>
+<input type="text" class="form-control" id="posttitle" value="<?php echo htmlentities($row['position']);?>" name=" position" placeholder="Enter Position" required>
+</div>
+   
+
+<div class="row">
+<div class="col-sm-12">
+ <div class="card-box">
+<h4 class="m-b-30 m-t-0 header-title"><b>More about Her/Him</b></h4>
+<textarea class="summernote" name="description" required><?php echo htmlentities($row['description']);?></textarea>
+</div>
+</div>
+</div>
+
+ <div class="row">
+<div class="col-sm-12">
+ <div class="card-box">
+<h4 class="m-b-30 m-t-0 header-title"><b>Profile Image</b></h4>
+<img src="uploads/<?php echo htmlentities($row['profile']);?>" width="300"/>
+<br />
+<a href="change-images.php?tid=<?php echo htmlentities($row['teamid']);?>">Update Image</a>
+</div>
+</div>
+</div>
+
 <?php } ?>
 
-</select> 
-</div>
-    
+<button type="submit" name="update" class="btn btn-success waves-effect waves-light">Update </button>
 
-         
-
-<div class="row">
-<div class="col-sm-12">
- <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>Activity Details</b></h4>
-<textarea class="summernote" name="postdescription" required></textarea>
-</div>
-</div>
-</div>
-
-
-<div class="row">
-<div class="col-sm-12">
- <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>Feature Image</b></h4>
-<input type="file" class="form-control" id="postimage" name="postimage"  required>
-</div>
-</div>
-</div>
-
-
-<button type="submit" name="submit" class="btn btn-success waves-effect waves-light">Save and Post</button>
- <button type="button" class="btn btn-danger waves-effect waves-light">Discard</button>
-                                        </form>
                                     </div>
                                 </div> <!-- end p-20 -->
                             </div> <!-- end col -->
@@ -291,7 +262,6 @@ while($result=mysqli_fetch_array($ret))
         <!--Summernote js-->
         <script src="../plugins/summernote/summernote.min.js"></script>
 
-    
 
 
     </body>

@@ -6,25 +6,61 @@ if(strlen($_SESSION['login'])==0)
   { 
 header('location:index.php');
 }
-else{
+else{  
 if(isset($_POST['update']))
 {
-$activitytitle=$_POST['activitytitle'];
-$catid=$_POST['category'];
-$activitydetails=$_POST['activitydetails'];
-$lastuptdby=$_SESSION['login'];
-$arr = explode(" ",$activitytitle);
-$status=1;
-$activityid=intval($_GET['eid']);
-$query=mysqli_query($conn,"update activity set ActivityTitle='$activitytitle',CategoryId='$catid',ActivityDetails='$activitydetails',Is_Active='$status',lastUpdatedBy='$lastuptdby' where id='$activityid'");
+
+//$imgfile=$_FILES["eventimage"]["name"];
+// get the image extension
+//$extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
+// allowed extensions
+//$allowed_extensions = array(".jpg","jpeg",".png",".gif");
+// Validation for allowed extensions .in_array() function searches an array for a specific value.
+//if(!in_array($extension,$allowed_extensions))
+//{
+//echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
+//}
+//else
+//{
+//rename the image file
+//$imgnewfile=md5($imgfile).$extension;
+// Code for move image into directory
+//move_uploaded_file($_FILES["postimage"]["tmp_name"],"postimages/".$imgnewfile);
+$img_name = $_FILES['profile']['name'];
+	$img_size = $_FILES['profile']['size'];
+	$tmp_name = $_FILES['profile']['tmp_name'];
+	$error = $_FILES['profile']['error'];
+
+	if ($error === 0) {
+		if ($img_size > 125000000) {
+			$em = "Sorry, your file is too large.";
+		    header("Location: change-images.php?error=$em");
+		}else {
+			$img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+			$img_ex_lc = strtolower($img_ex);
+
+			$allowed_exs = array("jpg", "jpeg", "png"); 
+
+			if (in_array($img_ex_lc, $allowed_exs)) {
+				$new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
+				$img_upload_path = 'uploads/'.$new_img_name;
+				move_uploaded_file($tmp_name, $img_upload_path);
+
+
+
+
+$teamid=intval($_GET['tid']);
+$query=mysqli_query($conn,"update team set profile='$new_img_name' where id='$teamid'");
 if($query)
 {
-$msg="Activity updated ";
+$msg="Member Feature Image updated ";
 }
 else{
 $error="Something went wrong . Please try again.";    
 } 
-
+}
+}
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -38,7 +74,7 @@ $error="Something went wrong . Please try again.";
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Ethan-Foundation| Update Activity</title>
+        <title>Ethan-Foundation| Add a Member</title>
 
         <!-- Summernote css -->
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
@@ -60,7 +96,7 @@ $error="Something went wrong . Please try again.";
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
         <script src="assets/js/modernizr.min.js"></script>
-<!-- <script>
+ <!--<script>
 function getSubCat(val) {
   $.ajax({
   type: "POST",
@@ -100,7 +136,7 @@ function getSubCat(val) {
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Edit Activity</h4>
+                                    <h4 class="page-title">Update Image </h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Admin</a>
@@ -108,8 +144,11 @@ function getSubCat(val) {
                                         <li>
                                             <a href="#"> Posts </a>
                                         </li>
+                                           <li>
+                                            <a href="#"> Edit A Member </a>
+                                        </li>
                                         <li class="active">
-                                            Add Activity
+                                           Update Image
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -136,12 +175,10 @@ function getSubCat(val) {
 
 </div>
 </div>
-
+<form name="addpost" method="post" enctype="multipart/form-data">
 <?php
-$activityid=intval($_GET['eid']);
-$query=mysqli_query($conn,"select activity.id as activityid,activity.ActivityImage,activity.ActivityTitle as title,activity.ActivityDetails,category.CategoryName as 
-category,category.id as catid from activity left join 
-category on category.id=activity.CategoryId where activity.id='$activityid' and activity.Is_Active=1 ");
+$teamid=intval($_GET['tid']);
+$query=mysqli_query($conn,"select profile,name from team where id='$teamid' and Is_Active=1 ");
 while($row=mysqli_fetch_array($query))
 {
 ?>
@@ -151,51 +188,35 @@ while($row=mysqli_fetch_array($query))
                                     <div class="">
                                         <form name="addpost" method="post">
  <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Activity Title</label>
-<input type="text" class="form-control" id="posttitle" value="<?php echo htmlentities($row['title']);?>" name=" activitytitle" placeholder="Enter title" required>
+<label for="exampleInputEmail1"> Name</label>
+<input type="text" class="form-control" id="eventtitle" value="<?php echo htmlentities($row['name']);?>" name="name"  readonly>
 </div>
 
 
-
-<div class="form-group m-b-20">
-<label for="exampleInputEmail1">Category</label>
-<select class="form-control" name="category" id="category" required>
-<option value="<?php echo htmlentities($row['catid']);?>"><?php echo htmlentities($row['category']);?></option>
-<?php
-// Feching active categories
-$ret=mysqli_query($conn,"select id,CategoryName from  category where Is_Active=1");
-while($result=mysqli_fetch_array($ret))
-{    
-?>
-<option value="<?php echo htmlentities($result['id']);?>"><?php echo htmlentities($result['CategoryName']);?></option>
-<?php } ?>
-</select> 
-</div>   
-
-<div class="row">
-<div class="col-sm-12">
- <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>Activity Details</b></h4>
-<textarea class="summernote" name="activitydetails" required><?php echo htmlentities($row['ActivityDetails']);?></textarea>
-</div>
-</div>
-</div>
 
  <div class="row">
 <div class="col-sm-12">
  <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>Activity Image</b></h4>
-<img src="uploads/<?php echo htmlentities($row['ActivityImage']);?>" width="300"/>
+<h4 class="m-b-30 m-t-0 header-title"><b>Current Post Image</b></h4>
+<img src="uploads/<?php echo htmlentities($row['profile']);?>" width="300"/>
 <br />
-<a href="changed-image.php?eid=<?php echo htmlentities($row['activityid']);?>">Update Image</a>
+
 </div>
 </div>
 </div>
 
 <?php } ?>
+<div class="row">
+<div class="col-sm-12">
+ <div class="card-box">
+<h4 class="m-b-30 m-t-0 header-title"><b>New Feature Image</b></h4>
+<input type="file" class="form-control" id="eventimage" name="profile"  required>
+</div>
+</div>
+</div>
 
 <button type="submit" name="update" class="btn btn-success waves-effect waves-light">Update </button>
-
+</form>
                                     </div>
                                 </div> <!-- end p-20 -->
                             </div> <!-- end col -->
@@ -252,24 +273,7 @@ while($result=mysqli_fetch_array($ret))
         <script src="assets/js/jquery.core.js"></script>
         <script src="assets/js/jquery.app.js"></script>
 
-        <script>
 
-            jQuery(document).ready(function(){
-
-                $('.summernote').summernote({
-                    height: 240,                 // set editor height
-                    minHeight: null,             // set minimum height of editor
-                    maxHeight: null,             // set maximum height of editor
-                    focus: false                 // set focus to editable area after initializing summernote
-                });
-                // Select2
-                $(".select2").select2();
-
-                $(".select2-limiting").select2({
-                    maximumSelectionLength: 2
-                });
-            });
-        </script>
   <script src="../plugins/switchery/switchery.min.js"></script>
 
         <!--Summernote js-->

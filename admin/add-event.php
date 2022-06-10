@@ -19,35 +19,52 @@ $eventdetails=$_POST['eventdetails'];
 $postedby=$_SESSION['login'];
 $arr = explode(" ",$eventtitle);
 $url=implode("-",$arr);
-$imgfile=$_FILES["eventimage"]["name"];
-// get the image extension
-$extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
-// allowed extensions
-$allowed_extensions = array(".jpg","jpeg",".png",".gif");
-// Validation for allowed extensions .in_array() function searches an array for a specific value.
-if(!in_array($extension,$allowed_extensions))
-{
-echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
-}
-else
-{
-//rename the image file
-//$imgnewfile=md5($imgfile).$extension;
+//$imgfile=$_FILES["eventimage"]["name"];
 
-$imgnewfile=($imgfile);
-// Code for move image into directory
-move_uploaded_file($_FILES["eventimage"]["tmp_name"],"eventimage".$imgnewfile);
+$img_name = $_FILES['eventimage']['name'];
+	$img_size = $_FILES['eventimage']['size'];
+	$tmp_name = $_FILES['eventimage']['tmp_name'];
+	$error = $_FILES['eventimage']['error'];
+
+	if ($error === 0) {
+		if ($img_size > 125000000) {
+			$em = "Sorry, your file is too large.";
+		    header("Location: add-event.php?error=$em");
+		}else {
+			$img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+			$img_ex_lc = strtolower($img_ex);
+
+			$allowed_exs = array("jpg", "jpeg", "png"); 
+
+			if (in_array($img_ex_lc, $allowed_exs)) {
+				$new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
+				$img_upload_path = 'uploads/'.$new_img_name;
+				move_uploaded_file($tmp_name, $img_upload_path);
+
+				// Insert into Database
+			
 $status=1;
-$query=mysqli_query($conn,"insert into events(EventTitle,CategoryId,RaisesAmount,RestAmount,EventDetails,Is_Active,EventImage,postedBy) values('$eventtitle','$catid','$raises','$rest','$eventdetails','$status','$imgnewfile','$postedby')");
+$query=mysqli_query($conn,"insert into events(EventTitle,CategoryId,RaisesAmount,RestAmount,EventDetails,Is_Active,EventImage,postedBy) values('$eventtitle','$catid','$raises','$rest','$eventdetails','$status','$new_img_name','$postedby')");
 if($query)
 {
 $msg="Event successfully added ";
 }
 else{
 $error="Something went wrong . Please try again.";    
-} 
-
 }
+				mysqli_query($conn, $sql);
+				header("Location: manage-events.php");
+			}else {
+				$em = "You can't upload files of this type";
+		        header("Location: add-event.php?error=$em");
+			}
+		}
+
+}else {
+	header("Location: add-event.php");
+}
+ 
+
 }
 ?>
 

@@ -8,53 +8,56 @@ header('location:index.php');
 }
 else{
 
-    if (isset($_POST['submit']) && isset($_FILES['my_image'])) {
-        include "config.php";
-    
-        echo "<pre>";
-        print_r($_FILES['my_image']);
-        echo "</pre>";
-    
-        $name=$_POST['name'];
-        $postion=$_POST['position'];
-        $img_name = $_FILES['my_image']['name'];
-        $img_size = $_FILES['my_image']['size'];
-        $tmp_name = $_FILES['my_image']['tmp_name'];
-        $error = $_FILES['my_image']['error'];
-    
-        if ($error === 0) {
-            if ($img_size > 125000) {
-                $em = "Sorry, your file is too large.";
-                header("Location: add-teamphp?error=$em");
-            }else {
-                $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
-                $img_ex_lc = strtolower($img_ex);
-    
-                $allowed_exs = array("jpg", "jpeg", "png"); 
-    
-                if (in_array($img_ex_lc, $allowed_exs)) {
-                    $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
-                    $img_upload_path = 'uploads/'.$new_img_name;
-                    move_uploaded_file($tmp_name, $img_upload_path);
-    
-                    // Insert into Database
-                    $sql = "INSERT INTO team(name,position,profile) 
-                            VALUES('$name','$position','$new_img_name')";
-                    mysqli_query($conn, $sql);
-                    header("Location: team.php");
-                }else {
-                    $em = "You can't upload files of this type";
-                    header("Location: add-team.php?error=$em");
-                }
-            }
-        }else {
-            $em = "unknown error occurred!";
-            header("Location: add-team.php?error=$em");
-        }
-    
-    }else {
-        header("Location: team.php");
-    }
+// For adding post  
+if(isset($_POST['submit']))
+{
+$name=$_POST['name'];
+$position=$_POST['position'];
+$description=$_POST['description'];
+$img_name = $_FILES['profile']['name'];
+	$img_size = $_FILES['profile']['size'];
+	$tmp_name = $_FILES['profile']['tmp_name'];
+	$error = $_FILES['profile']['error'];
+
+	if ($error === 0) {
+		if ($img_size > 125000000) {
+			$em = "Sorry, your file is too large.";
+		    header("Location: add-team.php?error=$em");
+		}else {
+			$img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
+			$img_ex_lc = strtolower($img_ex);
+
+			$allowed_exs = array("jpg", "jpeg", "png"); 
+
+			if (in_array($img_ex_lc, $allowed_exs)) {
+				$new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
+				$img_upload_path = 'uploads/'.$new_img_name;
+				move_uploaded_file($tmp_name, $img_upload_path);
+
+				// Insert into Database
+			
+$status=1;
+$query=mysqli_query($conn,"insert into team(name,position,profile,Is_Active,description) values('$name','$position','$new_img_name','$status','$description')");
+if($query)
+{
+$msg="Team Member successfully added ";
+}
+else{
+$error="Something went wrong . Please try again.";    
+}
+				mysqli_query($conn, $sql);
+				header("Location: manage-team.php");
+			}else {
+				$em = "You can't upload files of this type";
+		        header("Location: add-team.php?error=$em");
+			}
+		}
+
+}else {
+	header("Location: add-team.php");
+}
+ 
+
 }
 ?>
 <!DOCTYPE html>
@@ -68,7 +71,7 @@ else{
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>Ethan-Foundation| Add Acvity</title>
+        <title>Ethan-Foundation| Add A Team Member</title>
 
         <!-- Summernote css -->
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
@@ -90,18 +93,7 @@ else{
         <link href="assets/css/responsive.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="../plugins/switchery/switchery.min.css">
         <script src="assets/js/modernizr.min.js"></script>
- <script>
-function getSubCat(val) {
-  $.ajax({
-  type: "POST",
-  url: "get_subcategory.php",
-  data:'catid='+val,
-  success: function(data){
-    $("#subcategory").html(data);
-  }
-  });
-  }
-  </script>
+ >
     </head>
 
 
@@ -130,16 +122,16 @@ function getSubCat(val) {
                         <div class="row">
 							<div class="col-xs-12">
 								<div class="page-title-box">
-                                    <h4 class="page-title">Add Activity </h4>
+                                    <h4 class="page-title">Add team Member</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
                                             <a href="#">Post</a>
                                         </li>
                                         <li>
-                                            <a href="#">Add Activity </a>
+                                            <a href="#">AddTeam Member </a>
                                         </li>
                                         <li class="active">
-                                            Add Activity
+                                            Add Team Member
                                         </li>
                                     </ol>
                                     <div class="clearfix"></div>
@@ -168,57 +160,56 @@ function getSubCat(val) {
 </div>
 
 
-
-  <!--  ************************* Page Title Starts Here ************************** -->
-        
-  <div class="page-nav no-margin row">
-        <div class="container">
-            <div class="row">
-                <h2>Our Team</h2>
-                <ul>
-                    <li> <a href="add-team.php"><i class="fas fa-home"></i> Home</a></li>
-                    <li><i class="fas fa-angle-double-right"></i> Add Team</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    
-    
-   
-  <!-- ################# Events Start Here#######################--->
-  <?php
-
-include('includes/config.php');
-?>
-<body>
-	<?php if (isset($_GET['error'])): ?>
-		<p><?php echo $_GET['error']; ?></p>
-	<?php endif ?>
-    <form name="addpost" method="post" enctype="multipart/form-data">
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <div class="p-6">
+                                    <div class="">
+<form name="addpost" method="post" enctype="multipart/form-data">
  <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Full Name</label>
-<input type="text" class="form-control" id="posttitle" name="name" placeholder="Enter title" required>
-</div> <div class="form-group m-b-20">
-<label for="exampleInputEmail1">Position</label>
-<input type="text" class="form-control" id="posttitle" name="position" placeholder="Enter title" required>
+<input type="text" class="form-control" id="name" name="name" placeholder="Enter Full Name" required>
 </div>
-    </form>
 
-     <form action="upload.php"
-           method="post"
-           enctype="multipart/form-data">
+  
+<div class="form-group m-b-20">
+<label for="exampleInputEmail1">Position</label>
+<input type="text" class="form-control" id="position" name="position" placeholder="Enter Position" required>
+</div>
+ 
+<div class="row">
+<div class="col-sm-12">
+ <div class="card-box">
+<h4 class="m-b-30 m-t-0 header-title"><b>More About a new Member</b></h4>
+<textarea class="summernote" name="description" required></textarea>
+</div>
+</div>
+</div>
 
-           <input type="file" 
-                  name="my_image">
 
-           <input type="submit" 
-                  name="submit"
-                  value="Upload">
-     	
-     </form>
-</body>
-</html>
+<div class="row">
+<div class="col-sm-12">
+ <div class="card-box">
+<h4 class="m-b-30 m-t-0 header-title"><b>Member Image</b></h4>
+<input type="file" class="form-control" id="activtyimage" name="profile"  required>
+</div>
+</div>
+</div>
 
+
+<button type="submit" name="submit" class="btn btn-success waves-effect waves-light">Save and Post</button>
+ <button type="button" class="btn btn-danger waves-effect waves-light">Discard</button>
+                                        </form>
+                                    </div>
+                                </div> <!-- end p-20 -->
+                            </div> <!-- end col -->
+                        </div>
+                        <!-- end row -->
+
+
+
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
 
            <?php include('includes/footer.php');?>
 
@@ -292,3 +283,4 @@ include('includes/config.php');
 
     </body>
 </html>
+<?php } ?>

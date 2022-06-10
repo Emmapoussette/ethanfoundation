@@ -6,7 +6,7 @@
             <div class="row">
                 <h2>Our Team</h2>
                 <ul>
-                    <li> <a href="add-team.php"><i class="fas fa-home"></i> Home</a></li>
+                    <li> <a href=".php"><i class="fas fa-home"></i> Home</a></li>
                     <li><i class="fas fa-angle-double-right"></i> Add Team</li>
                 </ul>
             </div>
