@@ -197,7 +197,7 @@ while ($row = mysqli_fetch_array($query)) {
 				<form method="post" action="donate.php?action=add&id=<?php echo $row["eid"]; ?> ">
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
           <p <?php echo htmlentities($row["eventtitle"]);?>></p> 
-          <a href=""><img src="admin/uploads/<?php echo $row["EventImage"]; ?>" class="img-responsive" style="width: 200px; height: 200px;"/><br> </a>
+          <a href=""><img src="admin/uploads/<?php echo $row["EventImage"]; ?>" class="img-responsive" /><br> </a>
 
          
 
@@ -293,7 +293,7 @@ But you can read the following facts in order to make sure of all pluses of our 
 --><br /><br />
 			<?php
 				//$query = "SELECT * FROM activity ORDER BY id ASC";
-        $query = " select activity.id as eid,activity.ActivityTitle as title,activity.ActivityImage,category.CategoryName as category,category.id as
+        $query = " select activity.id as eid,activity.ActivityTitle as title,activity.ActivitySub as subtitle,activity.ActivityImage,category.CategoryName as category,category.id as
 cid,activity.ActivityDetails as details,activity.PostingDate as postingdate from activity left join category on category.id=activity.CategoryId
  where activity.Is_Active=1 order by activity.id desc limit 3"; 
 				$result = mysqli_query($conn, $query);
@@ -305,16 +305,11 @@ cid,activity.ActivityDetails as details,activity.PostingDate as postingdate from
 			<div class="col-md-4">
 				<form method="post" action="index.php?action=add&id=<?php echo $row["eid"]; ?>">
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
-						<img src="admin/uploads/<?php echo $row["ActivityImage"]; ?>" class="img-responsive"  style="width: 200px; height: 200px;"/><br />
+						<img src="admin/uploads/<?php echo $row["ActivityImage"]; ?>" class="img-responsive"  /><br />
 					
 
-						<h4 class="text-danger"> <?php echo $row["category"]; ?></h4>
-						<h6 class="text-info"><?php echo $row["title"]; ?></h6>
-
-						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
-
-						<input type="hidden" name="hidden_name" value="<?php echo $row["title"]; ?>" />
-
+						<h6 class="text-danger"> <?php echo $row["category"]; ?></h6>
+						<h6 class="text-info"><?php echo $row["subtitle"]; ?></h6>
 						
             <class="text-info">
 

@@ -4,8 +4,8 @@
   <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-12">
-                <h1>About Us</h1>
+            <div class="col-md-4 col-sm-12" style="color:#ecb25a" >
+                <h1>About Us </h1>
                 <p>
                     
                 </p>
@@ -29,7 +29,7 @@ while($row=mysqli_fetch_array($query))
       <!-- /.row -->
 <?php } ?>  </p>
             </div>
-          <div class="col-md-4 col-sm-12">
+          <div class="col-md-4 col-sm-12" style="color:#ecb25a">
                 <h1>Useful Links</h1>
                 <ul class="list-unstyled link-list">
                     <li><a ui-sref="about" href="about_us.php"><h2>About us</h2></a><i class="fa fa-angle-right"></i></li>
@@ -39,8 +39,8 @@ while($row=mysqli_fetch_array($query))
                     <li><a ui-sref="gallery" href="activities.php"><h2>Activities</h2></a><i class="fa fa-angle-right"></i></li>
                 </ul>
             </div>
-            <div class="col-md-4 col-sm-12 map-img">
-                <h1>Contact Us</h1>
+            <div class="col-md-4 col-sm-12 map-img" >
+                <h1 style="color:#ecb25a">Contact Us</h1>
                 <address class="md-margin-bottom-40">
                     Rwanda-Kigali KG750 <br>
                     Ethiopia, Ethiopia<br>

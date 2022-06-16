@@ -10,13 +10,14 @@ else{
 if(isset($_POST['update']))
 {
 $activitytitle=$_POST['activitytitle'];
+$activitysubtitle=$_POST['activitysubtitle'];
 $catid=$_POST['category'];
 $activitydetails=$_POST['activitydetails'];
 $lastuptdby=$_SESSION['login'];
 $arr = explode(" ",$activitytitle);
 $status=1;
 $activityid=intval($_GET['eid']);
-$query=mysqli_query($conn,"update activity set ActivityTitle='$activitytitle',CategoryId='$catid',ActivityDetails='$activitydetails',Is_Active='$status',lastUpdatedBy='$lastuptdby' where id='$activityid'");
+$query=mysqli_query($conn,"update activity set ActivitySub='$activitysubtitle',ActivityTitle='$activitytitle',CategoryId='$catid',ActivityDetails='$activitydetails',Is_Active='$status',lastUpdatedBy='$lastuptdby' where id='$activityid'");
 if($query)
 {
 $msg="Activity updated ";
@@ -139,7 +140,7 @@ function getSubCat(val) {
 
 <?php
 $activityid=intval($_GET['eid']);
-$query=mysqli_query($conn,"select activity.id as activityid,activity.ActivityImage,activity.ActivityTitle as title,activity.ActivityDetails,category.CategoryName as 
+$query=mysqli_query($conn,"select activity.id as activityid,activity.ActivityImage,activity.ActivitySub as subtitle,activity.Activitytitle as title,activity.ActivityDetails,category.CategoryName as 
 category,category.id as catid from activity left join 
 category on category.id=activity.CategoryId where activity.id='$activityid' and activity.Is_Active=1 ");
 while($row=mysqli_fetch_array($query))
@@ -154,9 +155,6 @@ while($row=mysqli_fetch_array($query))
 <label for="exampleInputEmail1">Activity Title</label>
 <input type="text" class="form-control" id="posttitle" value="<?php echo htmlentities($row['title']);?>" name=" activitytitle" placeholder="Enter title" required>
 </div>
-
-
-
 <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Category</label>
 <select class="form-control" name="category" id="category" required>
@@ -170,7 +168,15 @@ while($result=mysqli_fetch_array($ret))
 <option value="<?php echo htmlentities($result['id']);?>"><?php echo htmlentities($result['CategoryName']);?></option>
 <?php } ?>
 </select> 
-</div>   
+</div> 
+
+<div class="form-group m-b-20">
+<label for="exampleInputEmail1">Activity SubTitle</label>
+<input type="text" class="form-control" id="activitysubtitle" value="<?php echo htmlentities($row['sutitle']);?>" name=" activitysubtitle" placeholder="Enter Activitysubtitle" required>
+</div>
+  
+
+
 
 <div class="row">
 <div class="col-sm-12">

@@ -13,6 +13,7 @@ if(isset($_POST['submit']))
 {
 $activitytitle=$_POST['activitytitle'];
 $catid=$_POST['category'];
+$activitysubtitle=$_POST['activitysubtitle'];
 $activitydetails=$_POST['activitydetails'];
 $postedby=$_SESSION['login'];
 $arr = explode(" ",$activitytitle);
@@ -42,7 +43,7 @@ $img_name = $_FILES['activityimage']['name'];
 				// Insert into Database
 			
 $status=1;
-$query=mysqli_query($conn,"insert into activity(ActivityTitle,CategoryId,ActivityDetails,Is_Active,ActivityImage,postedBy) values('$activitytitle','$catid','$activitydetails','$status','$new_img_name','$postedby')");
+$query=mysqli_query($conn,"insert into activity(ActivityTitle,CategoryId,ActivitySub,ActivityDetails,Is_Active,ActivityImage,postedBy) values('$activitytitle','$catid','$activitysubtitle','$activitydetails','$status','$new_img_name','$postedby')");
 if($query)
 {
 $msg="Event successfully added ";
@@ -184,6 +185,11 @@ function getSubCat(val) {
  <div class="form-group m-b-20">
 <label for="exampleInputEmail1">Activity Title</label>
 <input type="text" class="form-control" id="activitytitle" name="activitytitle" placeholder="Enter title" required>
+</div>
+
+<div class="form-group m-b-20">
+<label for="exampleInputEmail1">Activity Subtitle</label>
+<input type="text" class="form-control" id="activitysubtitle" name="activitysubtitle" placeholder="Enter subtitle" required>
 </div>
 
 

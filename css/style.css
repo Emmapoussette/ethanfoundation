@@ -2885,7 +2885,7 @@ input#submit-btn {
     color: #fff !important;
 }
 .dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
-    background-color:#c32143;
+    background-color:#fff;
 }
 .col-sm-3, .col-sm-6{
 	padding-left:0;

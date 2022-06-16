@@ -20,7 +20,7 @@ $email=$_POST['email'];
 $comment=$_POST['comment'];
 $activityid=intval($_GET['nid']);
 $st1='0';
-$query=mysqli_query($conn,"insert into comments(activityId,name,email,comment,status) values('$activityid','$name','$email','$comment','$st1')");
+$query=mysqli_query($conn,"insert into comments(ActivityId,name,email,comment,status) values('$activityid','$name','$email','$comment','$st1')");
 if($query):
   echo "<script>alert('comment successfully submit. Comment will be display after admin review ');</script>";
   unset($_SESSION['token']);
@@ -209,7 +209,7 @@ $pt=$row['activitydetails'];
 
  <?php 
  $sts=1;
- $query=mysqli_query($conn,"select name,comment,postingDate from  comments where activityId='$eid' and status='$sts'");
+ $query=mysqli_query($conn,"select name,comment,postingDate from  comments where ActivityId='$eid' and status='$sts'");
 while ($row=mysqli_fetch_array($query)) {
 ?>
 <div class="media mb-4">

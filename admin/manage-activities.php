@@ -127,7 +127,7 @@ $error="Something went wrong . Please try again.";
 <tbody>
 
 <?php
-$query=mysqli_query($conn,"select activity.id as activityid,activity.ActivityTitle as title,activity.ActivityDetails as details,category.CategoryName as category
+$query=mysqli_query($conn,"select activity.id as activityid,activity.ActivitySub as subtitle,activity.ActivityTitle as title,activity.ActivityDetails as details,category.CategoryName as category
  from activity left join category on category.id=activity.CategoryId where activity.Is_Active=1 ");
 $rowcount=mysqli_num_rows($query);
 if($rowcount==0)

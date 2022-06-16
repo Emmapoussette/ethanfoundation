@@ -296,7 +296,7 @@ button::-moz-focus-inner {
     border-color: #D3D3D3;
 }
 .payment-online-form-left input[type="text"]:hover{
-	border-color:#E74C3C;
+	border-color:#fff;
 }
 .text-box-dark{
 }
