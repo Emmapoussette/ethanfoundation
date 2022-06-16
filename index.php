@@ -194,10 +194,10 @@ while ($row = mysqli_fetch_array($query)) {
 				?>
         
         <div class="col-md-4">
-				<form method="post" action="donate.php?action=add&id=<?php echo $row["eid"]; ?>">
+				<form method="post" action="donate.php?action=add&id=<?php echo $row["eid"]; ?> ">
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
           <p <?php echo htmlentities($row["eventtitle"]);?>></p> 
-          <a href=""><img src="admin/uploads/<?php echo $row["EventImage"]; ?>" class="img-responsive" /><br> </a>
+          <a href=""><img src="admin/uploads/<?php echo $row["EventImage"]; ?>" class="img-responsive" style="width: 200px; height: 200px;"/><br> </a>
 
          
 
@@ -305,7 +305,7 @@ cid,activity.ActivityDetails as details,activity.PostingDate as postingdate from
 			<div class="col-md-4">
 				<form method="post" action="index.php?action=add&id=<?php echo $row["eid"]; ?>">
 					<div style="border:1px solid #333; background-color:#f1f1f1; border-radius:5px; padding:16px;" align="center">
-						<img src="admin/uploads/<?php echo $row["ActivityImage"]; ?>" class="img-responsive" /><br />
+						<img src="admin/uploads/<?php echo $row["ActivityImage"]; ?>" class="img-responsive"  style="width: 200px; height: 200px;"/><br />
 					
 
 						<h4 class="text-danger"> <?php echo $row["category"]; ?></h4>

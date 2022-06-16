@@ -54,9 +54,9 @@
                                 </ul>
                             </li> 
 
-                            <li class="has_sub">
+                           <!-- <li class="has_sub">
                                 <a href="gallery.php"javascript:void(0); class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Gallery </span> </a>
-                            </li>   
+                            </li> -->  
                             
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Team Mambers </span> <span class="menu-arrow"></span></a>

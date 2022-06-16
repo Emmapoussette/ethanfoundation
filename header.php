@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="icon_path" type="image/icon type">
     <title>Ethan|Foundation</title>
-    <link rel="shortcut icon" href="admin/assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="admin/assets/images/favicon.ico"/>
         <link rel="icon" href="http://www.domain.com/favicon.ico" type="image/x-icon" />
         <link rel="shortcut icon" href="assets/images/fav.png" type="image/x-icon">
    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
@@ -27,17 +27,17 @@
 <body>
 
 <header class="continer-fluid ">
-    <div  class="header-top">
+    <div  class="header-top" style="background-color:#ecb25a">
         <div class="container">
             <div class="row col-det">
                 <div class="col-lg-6 d-none d-lg-block">
                     <ul class="ulleft" >
                         <li>
-                            <i class="far fa-envelope" ></i>
+                            <i class="far fa-envelope" style="color:#fff"></i>
                             ethanfoundation@gmail.com
                             <span>|</span></li>
                         <li>
-                            <i class="fas fa-phone-volume"></i>
+                            <i class="fas fa-phone-volume" style="color:#fff"></i>
                             +2507888888888</li>
                     </ul>
                 </div>
@@ -54,18 +54,18 @@
     </script>
     
                         <!--<li>
-                        <a href="https://www.facebook.com/follow.php?u=<?php echo $currenturl;?>" target="_blank">  <i class="fab fa-facebook-square"></i></a>
+                        <a href="https://www.facebook.com/follow.php?u=<?php echo $currenturl;?>" target="_blank">  <i class="fab fa-facebook-square style="color:#fff""></i></a>
                         </li>-->
                         <li>
-                        <a href="https://twitter.com/share?url=<?php echo $currenturl;?>" target="_blank">  <i class="fab fa-twitter-square" > </i></a></li>
+                        <a href="https://twitter.com/share?url=<?php echo $currenturl;?>" target="_blank">  <i class="fab fa-twitter-square" style="color:#fff"> </i></a></li>
                         <li>
-                        <a href="https://instagram.com/send?text=<?php echo $currenturl;?>" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://instagram.com/send?text=<?php echo $currenturl;?>" target="_blank"><i class="fab fa-instagram" style="color:#fff"></i></a>
                         </li>
                         <li>
-                        <a href="https://web.whatsapp.com/send?text=<?php echo $currenturl;?>" target="_blank"> <i class="fab fa-whatsapp"></i></a>
+                        <a href="https://web.whatsapp.com/send?text=<?php echo $currenturl;?>" target="_blank"> <i class="fab fa-whatsapp" style="color:#fff"></i></a>
                         </li>
                         <li>
-                        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $currenturl;?>" target="_blank"> <i class="fab fa-linkedin"></i></a>
+                        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=<?php echo $currenturl;?>" target="_blank"> <i class="fab fa-linkedin" style="color:#fff"></i></a>
                         </li>
                     </ul>
                 </div>
@@ -81,7 +81,7 @@
             <div class="row nav-row">
                 <div class="col-lg-3 col-md-12 logo">
                     <a href="index.php">
-                        <img src="assets/images/logoo.jpg" height="40px" alt="">
+                        <img src="assets/images/logoo.jpg" height="60px" alt="">
                         <a data-toggle="collapse" data-target="#menu" href="#menu"><i class="fas d-block d-lg-none  small-menu fa-bars"></i></a>
                     </a>
 

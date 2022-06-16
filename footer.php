@@ -58,7 +58,7 @@ while($row=mysqli_fetch_array($query))
                     <li><a href="#">Garelly</a></li>
                     <li><a href="#">Become a Volunteer</a></li>
                     <li>
-                        <a href="https://web.whatsapp.com/send?text=<?php echo $currenturl;?>" target="_blank"> <i class="fab fa-whatsapp"></i></a>
+                        <a href="https://web.whatsapp.com/send?text=<?php echo $currenturl;?>" target="_blank"> <i class="fab fa-whatsapp" ></i></a>
                         </li>
                 </ul>
 
