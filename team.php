@@ -2,95 +2,38 @@
 // https://colorlib.com/polygon/adminator/index.html
 <script src="js/team.js"></script>
 </script>
-<center><h1>Our Team</h1> </center>
-<br>
+<h1>Our Team</h1>
                 <?php
 				$query ="SELECT * FROM team ORDER BY id DESC";
 				$result = mysqli_query($conn, $query);
 				if(mysqli_num_rows($result) > 0)
 				{
-					$row = mysqli_fetch_array($result)
-					
+					while($row = mysqli_fetch_array($result))
+					{
 				?>
             
         <div class="wrapper">
             
             <div class="team">
                 <div class="team_member">
-                    <?php
-                    $team ="SELECT * FROM team WHERE id==1";
-                    ?>
                 <div class="team_img">
                 <img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
                 </div>
                 <h3><?php echo htmlentities($row['position']);?> </h3>
                 <p class="role"> <?php echo htmlentities($row['name']);?> </p></p>
                 <p><?php echo htmlentities($row['description']);?> </p></p>
-                </div>
-                <div class="team_member">
-                <?php
-                    $team ="SELECT * FROM team WHERE id==2";
-                    ?>
-                <div class="team_img">
-                <img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
-                </div>
-                <h3><?php echo htmlentities($row['position']);?> </h3>
-                <p class="role"> <?php echo htmlentities($row['name']);?> </p></p>
-                <p><?php echo htmlentities($row['description']);?> </p></p>
-                </div>
-                <div class="team_member">
-                <?php
-                    $team ="SELECT * FROM team WHERE id==3";
-                    ?>
-                <div class="team_img">
-                <img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
-                </div>
-                <h3><?php echo htmlentities($row['position']);?> </h3>
-                <p class="role"> <?php echo htmlentities($row['name']);?> </p></p>
-                <p><?php echo htmlentities($row['description']);?> </p></p>
-                </div>
-                <div class="team_member">
-                <?php
-                    $team ="SELECT * FROM team WHERE id==4";
-                    ?>
-                <div class="team_img">
-                <img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
-                </div>
-                <h3><?php echo htmlentities($row['position']);?> </h3>
-                <p class="role"> <?php echo htmlentities($row['name']);?> </p></p>
-                <p><?php echo htmlentities($row['description']);?> </p></p>
-                </div>
-                <div class="team_member">
-                <?php
-                    $team ="SELECT * FROM team WHERE id==5";
-                    ?>
-                <div class="team_img">
-                <img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
-                </div>
-                <h3><?php echo htmlentities($row['position']);?> </h3>
-                <p class="role"> <?php echo htmlentities($row['name']);?> </p></p>
-                <p><?php echo htmlentities($row['description']);?> </p></p>
-                </div>
-                <div class="team_member">
-                <?php
-                    $team ="SELECT * FROM team WHERE id==6";
-                    ?>
-                <div class="team_img">
-                <img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
-                </div>
-                <h3><?php echo htmlentities($row['position']);?> </h3>
-                <p class="role"> <?php echo htmlentities($row['name']);?> </p></p>
-                <p><?php echo htmlentities($row['description']);?> </p></p>
+            
+
                 </div>
             </div>
         
             <?php
 					}
-				
+				}
 			?>
 
                 
-<!--<div class="wrapper">
+<div class="wrapper">
   <h1>Our Team</h1>
   <div class="team">
     <div class="team_member">
@@ -117,7 +60,7 @@
       <p>Our Courses are delivered trusted instructors, they are prepared by those Experienced and licensed Health Professionals.</p>
     </div>
   </div>
-</div>-->
+</div>
 
 
 <style>
