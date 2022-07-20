@@ -13,7 +13,7 @@ $pagetype='contactus';
 $pagetitle=$_POST['pagetitle'];
 $pagedetails=$_POST['pagedescription'];
 
-$query=mysqli_query($con,"update pages set PageTitle='$pagetitle',Description='$pagedetails' where PageName='$pagetype' ");
+$query=mysqli_query($conn,"update pages set PageTitle='$pagetitle',Description='$pagedetails' where PageName='$pagetype' ");
 if($query)
 {
 $msg="About us  page successfully updated ";

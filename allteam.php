@@ -125,11 +125,102 @@ while($row=mysqli_fetch_array($query))
   </section>   
    
    <!--################### Our Team Starts Here #######################--->
-  <!-- <section class="our-team team-11">-->
-     
-  <?php
-     include('team.php');
-     ?>     
+  <!-- <section class="our-team team-11">
+            <div class="container">
+                <div class="session-title row">
+                      <h2>Meet our Team</h2>
+                      <p></p>
+                </div>
+                <div class="row team-row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="single-usr">
+                            <img src="assets/images/team/memb1.jpg" alt="">
+                            <div class="det-o">
+                                <h4>Ethan Member</h4>
+                                <i>CEO </i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="single-usr">
+                            <img src="assets/images/team/memb1.jpg" alt="">
+                            <div class="det-o">
+                                <h4>Ethan Team</h4>
+                                <i>CFO</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="single-usr">
+                            <img src="assets/images/team/memb3.jpg" alt="">
+                            <div class="det-o">
+                                <h4>Ethan Team</h4>
+                                <i>Team Leader</i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="single-usr">
+                            <img src="assets/images/team/memb4.jpg" alt="">
+                            <div class="det-o">
+                                <h4>Ethan Team</h4>
+                                <i>Project Manager</i>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>   -->  
+        <head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<br />
+		<div class="container">
+			<br />
+			<br />
+			<br />
+		
+			<br /><br />
+			<?php
+				$query ="SELECT * FROM team ORDER BY id DESC";
+				$result = mysqli_query($conn, $query);
+				if(mysqli_num_rows($result) > 0)
+				{
+					while($row = mysqli_fetch_array($result))
+					{
+				?>
+			<div class="col-md-4">
+				<form method="post">
+					<div style=" background-color:#f1f1f1; border-radius:5px; padding:16px; width='200px' hight='200px'," align="center">
+						<img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
+
+						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
+                    <p class="desic"><?php echo htmlentities($row['name']);?> </p>
+                    <p class="desic"><?php echo htmlentities($row['position']);?> </p>
+                  
+
+						<!--<input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />-->
+
+					</div>
+				</form>
+			</div>
+			<?php
+					}
+				}
+			?>
+			
+					
+		</div>
+	</div>
+	<br /></br>
+      </div>
+	</body> 
+         
                  
   <!--  ************************* Footer Starts Here ************************** -->
      <?php

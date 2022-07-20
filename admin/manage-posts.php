@@ -11,7 +11,7 @@ else{
 if($_GET['action']='del')
 {
 $postid=intval($_GET['pid']);
-$query=mysqli_query($con,"update posts set Is_Active=0 where id='$postid'");
+$query=mysqli_query($conn,"update posts set Is_Active=0 where id='$postid'");
 if($query)
 {
 $msg="Post deleted ";
@@ -127,7 +127,7 @@ $error="Something went wrong . Please try again.";
 <tbody>
 
 <?php
-$query=mysqli_query($con,"select posts.id as postid,posts.PostTitle as title,category.CategoryName as category,
+$query=mysqli_query($conn,"select posts.id as postid,posts.PostTitle as title,category.CategoryName as category,
 subcategory.Subcategory as subcategory from posts left join category on category.id=posts.CategoryId left join
  subcategory on subcategory.SubCategoryId=posts.SubCategoryId where posts.Is_Active=1 ");
 $rowcount=mysqli_num_rows($query);

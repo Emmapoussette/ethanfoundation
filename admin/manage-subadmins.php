@@ -12,7 +12,7 @@ else{
 if($_GET['action']=='del' && $_GET['rid'])
 {
 	$id=intval($_GET['rid']);
-	$query=mysqli_query($con,"delete from  admin  where id='$id' && userType=0");
+	$query=mysqli_query($conn,"delete from  admin  where id='$id' && userType=0");
 echo "<script>alert('Sub-admin details deleted.');</script>";
 echo "<script type='text/javascript'> document.location = 'manage-subadmins.php'; </script>";
 }
@@ -112,7 +112,7 @@ echo "<script type='text/javascript'> document.location = 'manage-subadmins.php'
                                                         </thead>
                                                         <tbody>
 <?php 
-$query=mysqli_query($con,"Select * from  admin where userType=0");
+$query=mysqli_query($conn,"Select * from  admin where userType=0");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {

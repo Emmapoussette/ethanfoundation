@@ -1,241 +1,197 @@
-<?php
-include('header.php');
- ?>
-  <!--  ************************* Page Title Starts Here ************************** -->
-        
-    <div class="page-nav no-margin row">
-        <div class="container">
-            <div class="row">
-                <h2>About Ethan Foundation</h2>
-                <ul>
-                    <li> <a href="index.php"><i class="fas fa-home"></i> Home</a></li>
-                    <li><i class="fas fa-angle-double-right"></i> About Us</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    
-    
-     <!--  ************************* About Us Starts Here ************************** -->    
-       
-<!--<div class="about-us container-fluid">
-    <div class="container">
-
-        <div class="row natur-row no-margin w-100">
-            <div class="text-part col-md-6">
-                <h2>About Our Ethan Foundation</h2>
-                <p> </p>
-                <p> </p>
-
-                <p> </p>
-            </div>
-            <div class="image-part col-md-6">
-                <div class="about-quick-box row">
-                    <div class="col-md-6">
-                        <div class="about-qcard">
-                           <i class="fas fa-user"></i>
-                            <p>Become a Volunteer</p>
-                        </div>
-                    </div>
-                     <div class="col-md-6">
-                        <div class="about-qcard ">
-                           <i class="fas fa-search-dollar red"></i>
-                            <p>Quick Fundraise</p>
-                        </div>
-                    </div>
-                     <div class="col-md-6">
-                        <div class="about-qcard ">
-                           <i class="fas fa-donate yell"></i>
-                            <p>Give Donation</p>
-                        </div>
-                    </div>
-                     <div class="col-md-6">
-                        <div class="about-qcard ">
-                           <i class="fas fa-hands-helping blu"></i>
-                            <p>Help Someone</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>     -->
-   
-   
-    
- <!-- ################# Mission Vision Start Here #######################--->
-  
-  <section class="container-fluid mission-vision">
-      <div class="container">
-          <div class="row mission">
-              <div class="col-md-6 mv-det">
-                  <h1>Our Mission</h1>
-                  <p><?php 
-                include('admin/includes/config.php');
-$pagetype='mission';
-$query=mysqli_query($conn,"select PageTitle,Description from pages where PageName='$pagetype'");
-while($row=mysqli_fetch_array($query))
-{
-
-?>
-     
-      <!-- Intro Content -->
-      <div class="row">
-
-        <div class="col-lg-12">
-
-          <p><?php echo $row['Description'];?></p>
-        </div>
-      </div>
-      <!-- /.row -->
-<?php } ?> </p>
-              </div>
-              <div class="col-md-6 mv-img">
-                  <img src="assets/images/misin.jpg" alt="">
-              </div>
-          </div>
-          <div class="row vision">
-              <div class="col-md-6 mv-img">
-                   <img src="assets/images/vision.jpg" alt="">
-              </div>
-              <div class="col-md-6 mv-det">
-                   <h1>Our Vision</h1>
-                   <p><?php 
-                //include('admin/includes/config.php');
-$pagetype='vision';
-$query=mysqli_query($conn,"select PageTitle,Description from pages where PageName='$pagetype'");
-while($row=mysqli_fetch_array($query))
-{
-
-?>
-     
-      <!-- Intro Content -->
-      <div class="row">
-
-        <div class="col-lg-12">
-
-          <p><?php echo $row['Description'];?></p>
-        </div>
-      </div>
-      <!-- /.row -->
-<?php } ?> </p>
-              </div>
-          </div>
-      </div>
-  </section>   
-   
-   <!--################### Our Team Starts Here #######################--->
-  <!-- <section class="our-team team-11">
-            <div class="container">
-                <div class="session-title row">
-                      <h2>Meet our Team</h2>
-                      <p></p>
-                </div>
-                <div class="row team-row">
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single-usr">
-                            <img src="assets/images/team/memb1.jpg" alt="">
-                            <div class="det-o">
-                                <h4>Ethan Member</h4>
-                                <i>CEO </i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single-usr">
-                            <img src="assets/images/team/memb1.jpg" alt="">
-                            <div class="det-o">
-                                <h4>Ethan Team</h4>
-                                <i>CFO</i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single-usr">
-                            <img src="assets/images/team/memb3.jpg" alt="">
-                            <div class="det-o">
-                                <h4>Ethan Team</h4>
-                                <i>Team Leader</i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-sm-6">
-                        <div class="single-usr">
-                            <img src="assets/images/team/memb4.jpg" alt="">
-                            <div class="det-o">
-                                <h4>Ethan Team</h4>
-                                <i>Project Manager</i>
-                            </div>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-        </section>   -->  
-        <head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		<br />
-		<div class="container">
-			<br />
-			<br />
-			<br />
-		
-			<br /><br />
-			<?php
+<script>
+// https://colorlib.com/polygon/adminator/index.html
+<script src="js/team.js"></script>
+</script>
+<center><h1>Our Team</h1> </center>
+<br>
+                <?php
 				$query ="SELECT * FROM team ORDER BY id DESC";
 				$result = mysqli_query($conn, $query);
 				if(mysqli_num_rows($result) > 0)
 				{
-					while($row = mysqli_fetch_array($result))
-					{
-				?>
-			<div class="col-md-4">
-				<form method="post">
-					<div style=" background-color:#f1f1f1; border-radius:5px; padding:16px; width='200px' hight='200px'," align="center">
-						<img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
-
-						<!--<input type="text" name="quantity" value="1" class="form-control" />-->
-                    <p class="desic"><?php echo htmlentities($row['name']);?> </p>
-                    <p class="desic"><?php echo htmlentities($row['position']);?> </p>
-                  
-
-						<!--<input type="submit" name="add_to_cart" style="margin-top:5px;" class="btn btn-success" value="Add to Cart" />-->
-
-					</div>
-				</form>
-			</div>
-			<?php
-					}
-				}
-			?>
-			
+					$row = mysqli_fetch_array($result)
 					
-		</div>
-	</div>
-	<br /></br>
+				?>
+            
+        <div class="wrapper">
+            
+            <div class="team">
+                <div class="team_member">
+                    <?php
+                    $team ="SELECT * FROM team WHERE id==1";
+                    ?>
+                <div class="team_img">
+                <img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
+                </div>
+                <h3><?php echo htmlentities($row['position']);?> </h3>
+                <p class="role"> <?php echo htmlentities($row['name']);?> </p></p>
+                <p><?php echo htmlentities($row['description']);?> </p></p>
+                </div>
+                <div class="team_member">
+                <?php
+                    $team ="SELECT * FROM team WHERE id==2";
+                    ?>
+                <div class="team_img">
+                <img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
+                </div>
+                <h3><?php echo htmlentities($row['position']);?> </h3>
+                <p class="role"> <?php echo htmlentities($row['name']);?> </p></p>
+                <p><?php echo htmlentities($row['description']);?> </p></p>
+                </div>
+                <div class="team_member">
+                <?php
+                    $team ="SELECT * FROM team WHERE id==3";
+                    ?>
+                <div class="team_img">
+                <img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
+                </div>
+                <h3><?php echo htmlentities($row['position']);?> </h3>
+                <p class="role"> <?php echo htmlentities($row['name']);?> </p></p>
+                <p><?php echo htmlentities($row['description']);?> </p></p>
+                </div>
+                <div class="team_member">
+                <?php
+                    $team ="SELECT * FROM team WHERE id==4";
+                    ?>
+                <div class="team_img">
+                <img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
+                </div>
+                <h3><?php echo htmlentities($row['position']);?> </h3>
+                <p class="role"> <?php echo htmlentities($row['name']);?> </p></p>
+                <p><?php echo htmlentities($row['description']);?> </p></p>
+                </div>
+                <div class="team_member">
+                <?php
+                    $team ="SELECT * FROM team WHERE id==5";
+                    ?>
+                <div class="team_img">
+                <img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
+                </div>
+                <h3><?php echo htmlentities($row['position']);?> </h3>
+                <p class="role"> <?php echo htmlentities($row['name']);?> </p></p>
+                <p><?php echo htmlentities($row['description']);?> </p></p>
+                </div>
+                <div class="team_member">
+                <?php
+                    $team ="SELECT * FROM team WHERE id==6";
+                    ?>
+                <div class="team_img">
+                <img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
+                </div>
+                <h3><?php echo htmlentities($row['position']);?> </h3>
+                <p class="role"> <?php echo htmlentities($row['name']);?> </p></p>
+                <p><?php echo htmlentities($row['description']);?> </p></p>
+                </div>
+            </div>
+        
+            <?php
+					}
+				
+			?>
+
+                
+<!--<div class="wrapper">
+  <h1>Our Team</h1>
+  <div class="team">
+    <div class="team_member">
+      <div class="team_img">
+      <img src="uploads/<?php echo $row["profile"]; ?>" class="img-responsive" /><br />
       </div>
-	</body> 
-         
-                 
-  <!--  ************************* Footer Starts Here ************************** -->
-     <?php
-     include('footer.php');
-     ?>
-    
-          
-    
-</body>
+      <h3><?php echo htmlentities($row['name']);?> </h3>
+      <p class="role"><p class="desic"><?php echo htmlentities($row['name']);?> </p></p>
+      <p><p class="desic"><?php echo htmlentities($row['position']);?> </p></p>
+    </div>
+    <div class="team_member">
+      <div class="team_img">
+        <img src="https://i.imgur.com/jQj1I8E.png" alt="Team_image">
+      </div>
+      <h3>Tean 2</h3>
+      <p class="role">Role </p>
+      <p>Our Courses are delivered trusted instructors, they are prepared by those Experienced and licensed Health Professionals./p></div>
+    <div class="team_member">
+      <div class="team_img">
+        <img src="https://i.imgur.com/2Necikc.png" alt="Team_image">
+      </div>
+      <h3>Team 3</h3>
+      <p class="role">position</p>
+      <p>Our Courses are delivered trusted instructors, they are prepared by those Experienced and licensed Health Professionals.</p>
+    </div>
+  </div>
+</div>-->
 
-<script src="assets/js/jquery-3.2.1.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/plugins/scroll-fixed/jquery-scrolltofixed-min.js"></script>
-<script src="assets/plugins/slider/js/owl.carousel.min.js"></script>
-<script src="assets/js/script.js"></script>
 
-</html>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Allura|Josefin+Sans');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background: #gray;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+.wrapper{
+  margin-top: 50px;
+}
+
+.wrapper h1{
+  font-family: 'Allura', cursive;
+  font-size: 52px;
+  margin-bottom: 60px;
+  text-align: center;
+}
+
+.team{
+  display: flex;
+  justify-content: center;
+  width: auto;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.team .team_member{
+  background: #fff;
+  margin: 5px;
+  margin-bottom: 50px;
+  width: 300px;
+  padding: 20px;
+  line-height: 20px;
+  color: #8e8b8b;  
+  position: relative;
+}
+
+.team .team_member h3{
+  color: darkblue;
+  font-size: 26px;
+  margin-top: 50px;
+}
+
+.team .team_member p.role{
+  color: #ccc;
+  margin: 12px 0;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.team .team_member .team_img{
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.team .team_member .team_img img{
+  width: 100px;
+  height: 100px;
+  padding: 5px;
+}
+
+</style>

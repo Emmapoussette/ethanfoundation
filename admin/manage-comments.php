@@ -10,14 +10,14 @@ else{
 if( $_GET['disid'])
 {
 	$id=intval($_GET['disid']);
-	$query=mysqli_query($con,"update comments set status='0' where id='$id'");
+	$query=mysqli_query($conn,"update comments set status='0' where id='$id'");
 	$msg="Comment unapprove ";
 }
 // Code for restore
 if($_GET['appid'])
 {
 	$id=intval($_GET['appid']);
-	$query=mysqli_query($con,"update comments set status='1' where id='$id'");
+	$query=mysqli_query($conn,"update comments set status='1' where id='$id'");
 	$msg="Comment approved";
 }
 
@@ -25,7 +25,7 @@ if($_GET['appid'])
 if($_GET['action']=='del' && $_GET['rid'])
 {
 	$id=intval($_GET['rid']);
-	$query=mysqli_query($con,"delete from  comments  where id='$id'");
+	$query=mysqli_query($conn,"delete from  comments  where id='$id'");
 	$delmsg="Comment deleted forever";
 }
 
@@ -137,7 +137,7 @@ if($_GET['action']=='del' && $_GET['rid'])
                                                         </thead>
                                                         <tbody>
 <?php 
-$query=mysqli_query($con,"Select comments.id,  comments.name,comments.email,comments.postingDate,comments.comment,posts.id as postid,
+$query=mysqli_query($conn,"Select comments.id,  comments.name,comments.email,comments.postingDate,comments.comment,posts.id as postid,
 posts.PostTitle from  comments join posts on posts.id=comments.postId where comments.status=1");
 $cnt=1;
 while($row=mysqli_fetch_array($query))

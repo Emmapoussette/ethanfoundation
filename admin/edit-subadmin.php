@@ -11,7 +11,7 @@ if(isset($_POST['submit']))
 {
 $aid=intval($_GET['said']);
 $email=$_POST['emailid'];
-$query=mysqli_query($con,"Update  admin set AdminEmailId='$email'  where userType=0 && id='$aid'");
+$query=mysqli_query($conn,"Update  admin set AdminEmailId='$email'  where userType=0 && id='$aid'");
 if($query)
 {
 echo "<script>alert('Sub-admin details updated.');</script>";
@@ -116,7 +116,7 @@ echo "<script>alert('Something went wrong . Please try again.');</script>";
 
 <?php 
 $aid=intval($_GET['said']);
-$query=mysqli_query($con,"Select * from  admin where userType=0 && id='$aid'");
+$query=mysqli_query($conn,"Select * from  admin where userType=0 && id='$aid'");
 $cnt=1;
 while($row=mysqli_fetch_array($query))
 {

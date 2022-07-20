@@ -18,7 +18,7 @@ $arr = explode(" ",$posttitle);
 $url=implode("-",$arr);
 $status=1;
 $postid=intval($_GET['pid']);
-$query=mysqli_query($con,"update posts set PostTitle='$posttitle',CategoryId='$catid',SubCategoryId='$subcatid',PostDetails='$postdetails',PostUrl='$url',Is_Active='$status',lastUpdatedBy='$lastuptdby' where id='$postid'");
+$query=mysqli_query($conn,"update posts set PostTitle='$posttitle',CategoryId='$catid',SubCategoryId='$subcatid',PostDetails='$postdetails',PostUrl='$url',Is_Active='$status',lastUpdatedBy='$lastuptdby' where id='$postid'");
 if($query)
 {
 $msg="Post updated ";
@@ -141,7 +141,7 @@ function getSubCat(val) {
 
 <?php
 $postid=intval($_GET['pid']);
-$query=mysqli_query($con,"select posts.id as postid,posts.PostImage,posts.PostTitle as title,posts.PostDetails,category.CategoryName as 
+$query=mysqli_query($conn,"select posts.id as postid,posts.PostImage,posts.PostTitle as title,posts.PostDetails,category.CategoryName as 
 category,category.id as catid,subcategory.SubCategoryId as subcatid,subcategory.Subcategory as subcategory from posts left join 
 category on category.id=posts.CategoryId left join subcategory on subcategory.SubCategoryId=posts.SubCategoryId where 
 posts.id='$postid' and posts.Is_Active=1 ");
@@ -166,7 +166,7 @@ while($row=mysqli_fetch_array($query))
 <option value="<?php echo htmlentities($row['catid']);?>"><?php echo htmlentities($row['category']);?></option>
 <?php
 // Feching active categories
-$ret=mysqli_query($con,"select id,CategoryName from  category where Is_Active=1");
+$ret=mysqli_query($conn,"select id,CategoryName from  category where Is_Active=1");
 while($result=mysqli_fetch_array($ret))
 {    
 ?>

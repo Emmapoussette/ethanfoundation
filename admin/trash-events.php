@@ -26,7 +26,7 @@ $error="Something went wrong . Please try again.";
 if($_GET['presid'])
 {
     $id=intval($_GET['presid']);
-    $query=mysqli_query($con,"delete from  posts  where id='$id'");
+    $query=mysqli_query($conn,"delete from  posts  where id='$id'");
     $delmsg="Event deleted forever";
 }
 

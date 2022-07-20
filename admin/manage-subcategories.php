@@ -10,14 +10,14 @@ else{
 if($_GET['action']=='del' && $_GET['scid'])
 {
 	$id=intval($_GET['scid']);
-	$query=mysqli_query($con,"update  subcategory set Is_Active='0' where SubCategoryId='$id'");
+	$query=mysqli_query($conn,"update  subcategory set Is_Active='0' where SubCategoryId='$id'");
 	$msg="Category deleted ";
 }
 // Code for restore
 if($_GET['resid'])
 {
 	$id=intval($_GET['resid']);
-	$query=mysqli_query($con,"update  subcategory set Is_Active='1' where SubCategoryId='$id'");
+	$query=mysqli_query($conn,"update  subcategory set Is_Active='1' where SubCategoryId='$id'");
 	$msg="Category restored successfully";
 }
 
@@ -25,7 +25,7 @@ if($_GET['resid'])
 if($_GET['action']=='perdel' && $_GET['scid'])
 {
 	$id=intval($_GET['scid']);
-	$query=mysqli_query($con,"delete from   subcategory  where SubCategoryId='$id'");
+	$query=mysqli_query($conn,"delete from   subcategory  where SubCategoryId='$id'");
 	$delmsg="Category deleted forever";
 }
 
@@ -142,7 +142,7 @@ if($_GET['action']=='perdel' && $_GET['scid'])
                                                         </thead>
                                                         <tbody>
 <?php 
-$query=mysqli_query($con,"Select category.CategoryName as catname,subcategory.Subcategory as subcatname,subcategory.SubCatDescription as 
+$query=mysqli_query($conn,"Select category.CategoryName as catname,subcategory.Subcategory as subcatname,subcategory.SubCatDescription as 
 SubCatDescription,subcategory.PostingDate as subcatpostingdate,subcategory.UpdationDate as subcatupdationdate,
 subcategory.SubCategoryId as subcatid from subcategory join category on subcategory.CategoryId=category.id where 
 subcategory.Is_Active=1");
@@ -219,7 +219,7 @@ $cnt++;
                                                         </thead>
                                                         <tbody>
 <?php 
-$query=mysqli_query($con,"Select category.CategoryName as catname,subcategory.Subcategory as subcatname,subcategory.SubCatDescription as 
+$query=mysqli_query($conn,"Select category.CategoryName as catname,subcategory.Subcategory as subcatname,subcategory.SubCatDescription as 
 SubCatDescription,subcategory.PostingDate as subcatpostingdate,subcategory.UpdationDate as subcatupdationdate,
 subcategory.SubCategoryId as subcatid from subcategory join category on subcategory.CategoryId=category.id where subcategory.Is_Active=0");
 $cnt=1;

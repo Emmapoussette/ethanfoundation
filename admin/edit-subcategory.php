@@ -13,7 +13,7 @@ $subcatid=intval($_GET['scid']);
 $categoryid=$_POST['category'];
 $subcatname=$_POST['subcategory'];
 $subcatdescription=$_POST['sucatdescription'];
-$query=mysqli_query($con,"update subcategory set CategoryId='$categoryid',Subcategory='$subcatname',SubCatDescription='$subcatdescription' where SubCategoryId='$subcatid'");
+$query=mysqli_query($conn,"update subcategory set CategoryId='$categoryid',Subcategory='$subcatname',SubCatDescription='$subcatdescription' where SubCategoryId='$subcatid'");
 if($query)
 {
 $msg="Sub-Category created ";
@@ -119,7 +119,7 @@ $error="Something went wrong . Please try again.";
 <?php 
 //fetching Category details
 $subcatid=intval($_GET['scid']);
-$query=mysqli_query($con,"Select category.CategoryName as catname,category.id as catid,subcategory.Subcategory as subcatname,
+$query=mysqli_query($conn,"Select category.CategoryName as catname,category.id as catid,subcategory.Subcategory as subcatname,
 subcategory.SubCatDescription as SubCatDescription,subcategory.PostingDate as subcatpostingdate,subcategory.UpdationDate as subcatupdationdate,
 subcategory.SubCategoryId as subcatid from subcategory join category on subcategory.CategoryId=category.id where subcategory.Is_Active=1 and  SubCategoryId='$subcatid'");
 $cnt=1;
@@ -140,7 +140,7 @@ while($row=mysqli_fetch_array($query))
                                                    <option value="<?php echo htmlentities($row['catid']);?>"><?php echo htmlentities($row['catname']);?></option>
 <?php
 // Feching active categories
-$ret=mysqli_query($con,"select id,CategoryName from  category where Is_Active=1");
+$ret=mysqli_query($conn,"select id,CategoryName from  category where Is_Active=1");
 while($result=mysqli_fetch_array($ret))
 {    
 ?>
